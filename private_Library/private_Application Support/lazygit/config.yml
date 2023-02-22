@@ -1,0 +1,39 @@
+gui:
+  scrollHeight: 10
+  showFileTree: false
+  showIcons: true
+git:
+  merging:
+    args: "--no-ff"
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+os:
+  editCommand: "code"
+  editCommandTemplate: "{{editor}} --goto {{filename}}:{{line}}"
+  openCommand: "code -rg {{filename}}"
+keybinding:
+  commits:
+    moveDownCommit: "<c-d>"
+    moveUpCommit: "<c-u>"
+customCommands:
+  - key: "<c-d>"
+    command: "git remote prune {{.SelectedRemote.Name}}"
+    context: "remotes"
+    loadingText: "Pruning..."
+    description: "prune deleted remote branches"
+  - key: b
+    command: tig blame -- {{.SelectedFile.Name}}
+    context: files
+    description: blame file at tree
+    subprocess: yes
+  - key: b
+    command: tig blame {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: blame file at revision
+    subprocess: yes
+  - key: B
+    command: tig blame -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: blame file at tree
+    subprocess: yes
