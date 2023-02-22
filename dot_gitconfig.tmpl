@@ -1,0 +1,32 @@
+[user]
+  name = Christian Rackerseder
+  email = {{ .email }}
+  signingKey = {{ .gitSigningKey }}
+[commit]
+  gpgsign = true
+[gpg]
+  program = gpg
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[core]
+  excludesfile = ~/.gitignore
+  editor = nvim
+[tag]
+  forceSignAnnotated = true
+[pull]
+  rebase = false
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+[delta]
+  line-numbers = true
+  syntax-theme = Dracula
+[init]
+  defaultBranch = main
