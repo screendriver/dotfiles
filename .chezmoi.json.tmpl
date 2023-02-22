@@ -1,0 +1,12 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $gitSigningKey := promptStringOnce . "gitSigningKey" "Git signing key" -}}
+
+{
+  "diff": {
+    "pager": "delta"
+  },
+  "data": {
+    "email": {{ $email | quote }},
+    "gitSigningKey": {{ $gitSigningKey | quote }}
+  }
+}
