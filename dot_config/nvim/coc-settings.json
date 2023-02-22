@@ -1,0 +1,4 @@
+{
+  "coc.preferences.formatOnSave": true,
+  "svelte.enable-ts-plugin": true
+}
