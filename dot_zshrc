@@ -1,0 +1,96 @@
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Path to oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+ZSH_THEME="dracula"
+
+# Oh my Zsh plugins. Can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(
+  git
+  brew
+  fd
+  fnm
+  git-lfs
+  npm
+  tig
+  vscode
+)
+
+source $ZSH/oh-my-zsh.sh
+
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export VISUAL="nvim"
+  export EDITOR="nvim"
+else
+  export VISUAL="nvim"
+  export EDITOR="nvim"
+fi
+
+alias ls=exa
+alias cat="bat --paging=never --style=plain"
+alias icat="kitty +kitten icat"
+alias s="kitty +kitten ssh"
+alias python="/opt/homebrew/bin/python3"
+
+export LESS="-Ri"
+export PAGER="less -Ri"
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval $(/opt/homebrew/bin/brew shellenv)
+
+eval "$(zoxide init zsh)"
+
+eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use fd in fzf instead of the default find command
+export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+eval "$(mcfly init zsh)"
+export MCFLY_FUZZY=true
+export MCFLY_RESULTS=30
+
+eval "$(fnm env --use-on-cd)"
+
+alias lg="lazygit"
+
+export NNN_COLORS="#0a1b2c3d;1234"
+export NNN_FCOLORS="c1e2272e006033f7c6d6abc4"
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="c:chksum;f:fzopen;p:preview-tui;u:getplugs;z:autojump"
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [[ "${NNNLVL:-0}" -ge 1 ]]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+    # see. To cd on quit only on ^G, remove the "export" and make sure not to
+    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
+    NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # The backslash allows one to alias n to nnn if desired without making an
+    # infinitely recursive alias
+    \nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
