@@ -5,6 +5,10 @@
   "diff": {
     "pager": "delta"
   },
+  "merge": {
+    "command": "nvim",
+    "args": ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+  },
   "data": {
     "email": {{ $email | quote }},
     "gitSigningKey": {{ $gitSigningKey | quote }}
