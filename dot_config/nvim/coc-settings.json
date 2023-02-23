@@ -1,4 +1,5 @@
 {
+  "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnSave": true,
   "svelte.enable-ts-plugin": true
 }
