@@ -15,6 +15,7 @@ plugins=(
   git-lfs
   npm
   tig
+  ripgrep
 )
 
 source $ZSH/oh-my-zsh.sh
