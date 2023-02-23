@@ -65,7 +65,6 @@ return require("packer").startup(function(use)
 	use "kdheepak/lazygit.nvim"
 	use "lewis6991/gitsigns.nvim"
 	use "luukvbaal/nnn.nvim"
-	use "brenoprata10/nvim-highlight-colors"
 	use "windwp/nvim-autopairs"
 
 	if packer_bootstrap then
