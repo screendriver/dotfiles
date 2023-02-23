@@ -15,7 +15,6 @@ plugins=(
   git-lfs
   npm
   tig
-  vscode
 )
 
 source $ZSH/oh-my-zsh.sh
