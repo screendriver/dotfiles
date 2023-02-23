@@ -1,25 +1,4 @@
 export PATH=$HOME/.cargo/bin:$PATH
-
-# Path to oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-
-ZSH_THEME="dracula"
-
-# Oh my Zsh plugins. Can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(
-  git
-  brew
-  fd
-  fnm
-  git-lfs
-  npm
-  tig
-  ripgrep
-)
-
-source $ZSH/oh-my-zsh.sh
-
 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -31,14 +10,42 @@ else
   export EDITOR="nvim"
 fi
 
+export LESS="-Ri"
+export PAGER="less -Ri"
+
+# Use fd in fzf instead of the default find command
+export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Path to oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+ZSH_THEME="dracula"
+
+# Oh my Zsh plugins. Can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(
+  git
+  git-lfs
+  brew
+  fd
+  fnm
+  fzf
+  npm
+  tig
+  ripgrep
+)
+
+source $ZSH/oh-my-zsh.sh
+
 alias ls=exa
 alias cat="bat --paging=never --style=plain"
 alias icat="kitty +kitten icat"
 alias s="kitty +kitten ssh"
 alias python="/opt/homebrew/bin/python3"
-
-export LESS="-Ri"
-export PAGER="less -Ri"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -47,15 +54,6 @@ eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Use fd in fzf instead of the default find command
-export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 eval "$(mcfly init zsh)"
 export MCFLY_FUZZY=true
