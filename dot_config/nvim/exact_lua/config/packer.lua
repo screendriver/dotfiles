@@ -21,7 +21,7 @@ vim.cmd([[
 return require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
-	use "Mofiqul/dracula.nvim"
+	use "dracula/vim"
 	use "nvim-lua/plenary.nvim"
 	use "nvim-lua/popup.nvim"
 	use {

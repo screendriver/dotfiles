@@ -1,6 +1,6 @@
 require("lualine").setup({
 	options = {
-		theme = "dracula-nvim",
+		theme = "dracula",
 	},
 	sections = {
 		lualine_a = { "mode" },
