@@ -54,9 +54,11 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 eval "$(starship init zsh)"
 
-eval "$(mcfly init zsh)"
-export MCFLY_FUZZY=true
 export MCFLY_RESULTS=30
+export MCFLY_KEY_SCHEME=vim
+eval "$(mcfly init zsh)"
+# bindkey "^R" mcfly-history-widget # Ctrl+R binds mcfly
+bindkey "^[^R" fzf-history-widget # Ctrl+Alt+R binds to fzf searcher
 
 eval "$(fnm env --use-on-cd)"
 
