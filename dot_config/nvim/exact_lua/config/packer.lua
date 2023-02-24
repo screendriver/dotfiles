@@ -67,6 +67,14 @@ return require("packer").startup(function(use)
 	use "luukvbaal/nnn.nvim"
 	use "windwp/nvim-autopairs"
 	use "NvChad/nvim-colorizer.lua"
+	use {
+		"nvim-telescope/telescope-file-browser.nvim",
+		requires = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons"
+		}
+	}
 
 	if packer_bootstrap then
 		require("packer").sync()
