@@ -8,6 +8,13 @@ telescope.setup({
 			}
 		}
 	},
+	extensions = {
+		file_browser = {
+			grouped = true,
+			hidden = true,
+			sorting_strategy = "ascending"
+		}
+	},
 })
 
 require("neoclip").setup({
