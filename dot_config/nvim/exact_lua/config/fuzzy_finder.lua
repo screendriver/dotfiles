@@ -22,11 +22,11 @@ vim.keymap.set(
 )
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-vim.keymap.set("n", "<leader>fm", builtin.marks, {})
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "File grep" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffer" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
+vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Find marks" })
 
 telescope.load_extension("fzf")
 telescope.load_extension("neoclip")
