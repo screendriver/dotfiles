@@ -66,6 +66,7 @@ return require("packer").startup(function(use)
 	use "lewis6991/gitsigns.nvim"
 	use "luukvbaal/nnn.nvim"
 	use "windwp/nvim-autopairs"
+	use "NvChad/nvim-colorizer.lua"
 
 	if packer_bootstrap then
 		require("packer").sync()
