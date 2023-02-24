@@ -1,4 +1,14 @@
-require("telescope").load_extension("fzf")
+local telescope = require("telescope")
+
+telescope.setup({
+	defaults = {
+		mappings = {
+			i = {
+				["<C-h>"] = "which_key"
+			}
+		}
+	},
+})
 
 require("neoclip").setup({
 	default_register = "+",
