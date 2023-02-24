@@ -22,6 +22,8 @@ return require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
 	use "Mofiqul/dracula.nvim"
+	use "nvim-lua/plenary.nvim"
+	use "nvim-lua/popup.nvim"
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -35,8 +37,6 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true }
 	}
 	use "unblevable/quick-scope"
-	use "nvim-lua/plenary.nvim"
-	use "nvim-lua/popup.nvim"
 	use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 	use {
 		"nvim-telescope/telescope.nvim", branch = "0.1.x",
@@ -53,10 +53,6 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/popup.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 		}
-	}
-	use {
-		"nvim-tree/nvim-tree.lua",
-		requires = { "nvim-tree/nvim-web-devicons" }
 	}
 	use { "neoclide/coc.nvim", branch = "release" }
 	use "chentoast/marks.nvim"
