@@ -13,5 +13,5 @@ nnn.setup({
 	}
 })
 
-vim.keymap.set("n", "<leader>nn", "<cmd>NnnPicker<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>n", "<cmd>NnnPicker %:p:h<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>nn", "<cmd>NnnPicker<CR>", { silent = true, noremap = true, desc = "Open [Nn]n" })
+vim.keymap.set("n", "<leader>n", "<cmd>NnnPicker %:p:h<CR>", { noremap = true, desc = "Open [N]nn in current path" })
