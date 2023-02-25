@@ -55,6 +55,7 @@ return require("packer").startup(function(use)
 		}
 	}
 	use { "neoclide/coc.nvim", branch = "release" }
+	use "fannheyward/telescope-coc.nvim"
 	use "chentoast/marks.nvim"
 	use "terrortylor/nvim-comment"
 	use "folke/zen-mode.nvim"

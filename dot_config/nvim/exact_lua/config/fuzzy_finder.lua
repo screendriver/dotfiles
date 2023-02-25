@@ -41,3 +41,4 @@ vim.keymap.set("n", "<leader>fc", "<cmd>Telescope neoclip<cr>", { desc = "[F]ind
 telescope.load_extension("fzf")
 telescope.load_extension("neoclip")
 telescope.load_extension("file_browser")
+telescope.load_extension("coc")
