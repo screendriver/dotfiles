@@ -36,6 +36,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 -- Symbol renaming
 vim.keymap.set("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true, desc = "[R]e[n]ame symbol" })
+-- Update signature help on jump placeholder
+vim.api.nvim_create_autocmd("User", {
+	group = "CocGroup",
+	pattern = "CocJumpPlaceholder",
+	command = "call CocActionAsync('showSignatureHelp')",
+	desc = "Update signature help on jump placeholder"
+})
 -- Apply code actions at the cursor position.
 vim.keymap.set("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)",
 	{ silent = true, nowait = true, desc = "[A]pply [C]ode actions at the cursor position" })
@@ -46,6 +53,9 @@ vim.keymap.set("n", "<leader>qf", "<Plug>(coc-fix-current)",
 vim.keymap.set("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true, desc = "[Re]factor code" })
 vim.keymap.set("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true, desc = "[R]efactor code" })
 vim.keymap.set("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true, desc = "[R]efactor code" })
+-- Run the Code Lens actions on the current line
+vim.keymap.set("n", "<leader>cl", "<Plug>(coc-codelens-action)",
+	{ silent = true, nowait = true, desc = "Run [C]ode [L]ens actions on current line" })
 -- Remap <C-f> and <C-b> to scroll float windows/popups
 local opts = { silent = true, nowait = true, expr = true, desc = "Scroll float windows/popus" }
 vim.keymap.set("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
@@ -54,3 +64,8 @@ vim.keymap.set("i", "<C-f>", 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1
 vim.keymap.set("i", "<C-b>", 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
 vim.keymap.set("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
 vim.keymap.set("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+-- Add ":Format" command to format current buffer
+vim.api.nvim_create_user_command("Format", "call CocAction('format')", { desc = "Format current buffer" })
+-- Add ":OR" command for organize imports of the current buffer
+vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
+	{ desc = "Organize imports" })
