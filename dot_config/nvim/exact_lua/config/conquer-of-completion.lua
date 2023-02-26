@@ -4,7 +4,21 @@ let g:coc_global_extensions = ["coc-css", "coc-eslint", "coc-html", "coc-json", 
 
 vim.keymap.set("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]],
 	{ expr = true, desc = "Use <CR> to confirm completion" })
-vim.keymap.set("i", "<c-space>", "coc#refresh()", { silent = true, expr = true, desc = "Use <CR> to trigger completion" })
+vim.keymap.set("i", "<c-space>", "coc#refresh()",
+	{ silent = true, expr = true, desc = "Use <C-Space> to trigger completion" })
+
+function _G.check_back_space()
+	local col = vim.fn.col('.') - 1
+	return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+
+vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()',
+	{ silent = true, noremap = true, expr = true, replace_keycodes = false,
+		desc = "Use <Tab> to navigate the completion list" })
+vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]],
+	{ silent = true, noremap = true, expr = true, replace_keycodes = false,
+		desc = "Use <S-Tab> to navigate the completion list" })
+
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 vim.keymap.set("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
