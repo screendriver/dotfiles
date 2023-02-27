@@ -23,6 +23,10 @@ vim.opt.list = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- Error bells
+vim.opt.errorbells = false
+vim.opt.visualbell = true
+
 vim.opt.signcolumn =
 "yes" -- Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved
 vim.opt.updatetime = 750 -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable delays and poor user experience
