@@ -1,8 +1,13 @@
 vim.g.mapleader = " " -- Use <Space> as leader key
 vim.opt.number = true -- Show line numbers
 vim.opt.relativenumber = true -- Show line number relative to the current line
+
+-- Search
 vim.opt.ignorecase = true -- Ignore letter case when searching
 vim.opt.smartcase = true -- Case insentive unless capitals used in search
+vim.opt.hlsearch = true -- Highlight search results
+vim.opt.incsearch = true -- Set incremental search, like modern Browsers
+
 vim.opt.cursorline = true -- Find the current line quickly
 vim.opt.mouse = "a" -- Enable mouse support
 vim.opt.title = true -- Show title at top of the terminal
