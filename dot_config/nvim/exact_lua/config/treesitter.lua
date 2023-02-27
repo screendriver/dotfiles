@@ -10,7 +10,8 @@ require("nvim-treesitter.configs").setup({
 		"svelte",
 		"astro",
 		"help",
-		"lua"
+		"lua",
+		"nix"
 	},
 	highlight = {
 		enable = true,
