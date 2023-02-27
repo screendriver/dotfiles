@@ -21,10 +21,11 @@ require("neoclip").setup({
 	default_register = "+",
 })
 
+-- Open file browser with the path of the current buffer
 vim.keymap.set(
 	"n",
 	"<leader>bf",
-	telescope.extensions.file_browser.file_browser,
+	"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
 	{ noremap = true, desc = "File Browser" }
 )
 
