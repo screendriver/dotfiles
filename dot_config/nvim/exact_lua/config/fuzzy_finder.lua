@@ -8,6 +8,11 @@ telescope.setup({
 			}
 		}
 	},
+	pickers = {
+		find_files = {
+			find_command = { "fd", "--type", "file", "--hidden" }
+		},
+	},
 	extensions = {
 		file_browser = {
 			grouped = true,
