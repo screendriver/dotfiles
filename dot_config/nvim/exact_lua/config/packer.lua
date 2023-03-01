@@ -72,6 +72,7 @@ return require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons"
 		}
 	}
+	use "knubie/vim-kitty-navigator"
 
 	if packer_bootstrap then
 		require("packer").sync()
