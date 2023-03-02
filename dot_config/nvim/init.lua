@@ -1,4 +1,4 @@
-require("config")
+require("screendriver")
 
 if vim.g.vscode then
 	vim.cmd([[
