@@ -64,6 +64,7 @@ eval "$(fnm env --use-on-cd)"
 
 alias lg="lazygit"
 
+export NNN_OPTS="H"
 export NNN_COLORS="#0a1b2c3d;1234"
 export NNN_FCOLORS="c1e2272e006033f7c6d6abc4"
 export NNN_FIFO="/tmp/nnn.fifo"
