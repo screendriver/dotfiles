@@ -73,6 +73,7 @@ return require("packer").startup(function(use)
 		}
 	}
 	use "knubie/vim-kitty-navigator"
+	use "tpope/vim-surround"
 
 	if packer_bootstrap then
 		require("packer").sync()
