@@ -16,6 +16,7 @@ vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 -- Indentation
 vim.opt.tabstop = 4 -- 1 Tab = 2 Spaces
 vim.opt.shiftwidth = 4 -- shift 4 spaces
+vim.opt.autoindent = true -- Copy indent from current line when starting a new line
 
 vim.opt.list = true
 
