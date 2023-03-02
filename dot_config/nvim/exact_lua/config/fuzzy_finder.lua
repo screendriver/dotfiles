@@ -17,7 +17,9 @@ telescope.setup({
 		file_browser = {
 			grouped = true,
 			hidden = true,
-			sorting_strategy = "ascending"
+			sorting_strategy = "ascending",
+			respect_gitignore = false,
+			use_fd = true
 		}
 	},
 })
