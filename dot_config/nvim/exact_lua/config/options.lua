@@ -36,6 +36,7 @@ vim.cmd.colorscheme("dracula")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true -- Force GUI colors in terminals
+vim.opt.iskeyword:append("-") -- Words-with-a-dash should be treated as a whole word
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true }) -- Move cursor to center of window when scrolling down
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true }) -- Move cursor to center of window when scrolling up
