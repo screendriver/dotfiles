@@ -1,4 +1,4 @@
-require("screendriver.packer")
+require("screendriver.plugins")
 require("screendriver.options")
 require("screendriver.treesitter")
 require("screendriver.conquer-of-completion")
