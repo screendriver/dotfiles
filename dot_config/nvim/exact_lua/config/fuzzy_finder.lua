@@ -26,12 +26,18 @@ require("neoclip").setup({
 	default_register = "+",
 })
 
--- Open file browser with the path of the current buffer
 vim.keymap.set(
 	"n",
 	"<leader>bf",
 	"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-	{ noremap = true, desc = "File Browser" }
+	{ noremap = true, desc = "[B]rowse [F]iles with path of current buffer" }
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>bF",
+	"<cmd>Telescope file_browser<CR>",
+	{ noremap = true, desc = "[B]rowse [F]iles" }
 )
 
 local builtin = require("telescope.builtin")
