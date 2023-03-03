@@ -10,7 +10,7 @@ git:
     pager: delta --dark --paging=never
 os:
   editCommand: "nvim"
-  editCommandTemplate: "{{editor}} --goto {{filename}}:{{line}}"
+  editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
 keybinding:
   commits:
     moveDownCommit: "<c-d>"
