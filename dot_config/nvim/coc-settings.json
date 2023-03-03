@@ -1,6 +1,5 @@
 {
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnSave": true,
-  "cSpell.words": ["vitest"],
   "svelte.enable-ts-plugin": true
 }
