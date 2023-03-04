@@ -5,4 +5,6 @@ leap.opts.highlight_unlabeled_phase_one_targets = true
 
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" }) -- Greying out the search area
 
-require("flit").setup()
+require("flit").setup({
+	labeled_modes = "nv"
+})
