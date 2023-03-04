@@ -36,7 +36,6 @@ return require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true }
 	}
-	use "unblevable/quick-scope"
 	use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 	use {
 		"nvim-telescope/telescope.nvim", branch = "0.1.x",
@@ -78,6 +77,12 @@ return require("packer").startup(function(use)
 		tag = "*"
 	}
 	use "ggandor/leap.nvim"
+	use {
+		"ggandor/flit.nvim",
+		requires = {
+			"ggandor/leap.nvim"
+		}
+	}
 
 	if packer_bootstrap then
 		require("packer").sync()
