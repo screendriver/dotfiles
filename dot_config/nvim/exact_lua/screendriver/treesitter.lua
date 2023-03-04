@@ -11,12 +11,19 @@ require("nvim-treesitter.configs").setup({
 		"svelte",
 		"astro",
 		"help",
+		"gitignore",
 		"lua",
-		"nix"
+		"yaml",
+		"nix",
+		"bash",
+		"dockerfile"
 	},
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true
 	},
 	autotag = {
 		enable = true,
