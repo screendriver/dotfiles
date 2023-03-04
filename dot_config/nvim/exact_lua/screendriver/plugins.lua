@@ -77,6 +77,7 @@ return require("packer").startup(function(use)
 		"kylechui/nvim-surround",
 		tag = "*"
 	}
+	use "ggandor/leap.nvim"
 
 	if packer_bootstrap then
 		require("packer").sync()
