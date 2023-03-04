@@ -4,6 +4,7 @@ require("nvim-treesitter.configs").setup({
 		"css",
 		"javascript",
 		"typescript",
+		"tsx",
 		"json",
 		"gitignore",
 		"markdown",
