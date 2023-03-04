@@ -1,5 +1,6 @@
 require("screendriver.plugins")
 require("screendriver.options")
+require("screendriver.web-devicons")
 require("screendriver.treesitter")
 require("screendriver.conquer-of-completion")
 require("screendriver.statusline")
