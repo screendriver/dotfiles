@@ -62,6 +62,7 @@ return require("packer").startup(function(use)
 	use "lewis6991/gitsigns.nvim"
 	use "luukvbaal/nnn.nvim"
 	use "windwp/nvim-autopairs"
+	use "windwp/nvim-ts-autotag"
 	use "NvChad/nvim-colorizer.lua"
 	use {
 		"nvim-telescope/telescope-file-browser.nvim",
