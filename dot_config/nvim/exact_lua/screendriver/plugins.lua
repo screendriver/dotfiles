@@ -85,6 +85,7 @@ return require("packer").startup(function(use)
 			"ggandor/leap.nvim"
 		}
 	}
+	use "andymass/vim-matchup"
 
 	if packer_bootstrap then
 		require("packer").sync()
