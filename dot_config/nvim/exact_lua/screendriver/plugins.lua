@@ -85,6 +85,7 @@ return require("packer").startup(function(use)
 			"ggandor/leap.nvim"
 		}
 	}
+	use "tpope/vim-repeat"
 	use "andymass/vim-matchup"
 
 	if packer_bootstrap then
