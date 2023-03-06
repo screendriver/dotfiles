@@ -1,7 +1,12 @@
+disableStartupPopups: true
 gui:
   scrollHeight: 10
+  scrollPastBottom: false
+  language: "en"
   showFileTree: false
+  showRandomTip: false
   showIcons: true
+  showCommandLog: false
 git:
   merging:
     args: "--no-ff"
