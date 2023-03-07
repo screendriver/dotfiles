@@ -37,6 +37,7 @@ plugins=(
   fzf
   npm
   tig
+  web-search
   ripgrep
   zoxide
 )
