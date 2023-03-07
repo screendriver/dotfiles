@@ -58,6 +58,7 @@ eval "$(starship init zsh)"
 
 export MCFLY_RESULTS=30
 export MCFLY_KEY_SCHEME=vim
+export MCFLY_PROMPT="❯"
 eval "$(mcfly init zsh)"
 # bindkey "^R" mcfly-history-widget # Ctrl+R binds mcfly
 bindkey "^[^R" fzf-history-widget # Ctrl+Alt+R binds to fzf searcher
