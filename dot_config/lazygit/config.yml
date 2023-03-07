@@ -1,6 +1,6 @@
 disableStartupPopups: true
 gui:
-  scrollHeight: 10
+  scrollHeight: 15
   scrollPastBottom: false
   language: "en"
   showFileTree: false
