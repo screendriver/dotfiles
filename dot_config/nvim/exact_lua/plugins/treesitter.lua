@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = "VeryLazy",
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = {
@@ -42,10 +43,12 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		event = "VeryLazy",
 		dependencies = "nvim-treesitter/nvim-treesitter"
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		event = "VeryLazy",
 		dependencies = "nvim-treesitter/nvim-treesitter"
 	},
 }

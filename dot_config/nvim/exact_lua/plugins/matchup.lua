@@ -1,5 +1,6 @@
 return {
 	"andymass/vim-matchup",
+	events = "VeryLazy",
 	config = function()
 		vim.g.loaded_matchit = 1 -- Slightly start-up time improvement
 		vim.g.matchup_matchparen_offscreen = { method = "popup" }
