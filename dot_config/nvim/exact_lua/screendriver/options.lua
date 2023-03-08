@@ -32,7 +32,6 @@ vim.opt.signcolumn =
 "yes" -- Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved
 vim.opt.updatetime = 750 -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable delays and poor user experience
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- Trigger a quick-scope highlight
-vim.cmd.colorscheme("dracula")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true -- Force GUI colors in terminals
