@@ -99,7 +99,14 @@ require("lazy").setup({
 					"filename",
 					path = 1
 				} },
-				lualine_x = { "filetype" },
+				lualine_x = {
+					{
+						require("lazy.status").updates,
+						cond = require("lazy.status").has_updates,
+						color = { fg = "#ff9e64" },
+					},
+					"filetype"
+				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" }
 			},
@@ -376,6 +383,6 @@ require("lazy").setup({
 }, {
 	checker = {
 		enabled = true, -- automatically check for plugin updates
-		notify = true -- get a notification when new updates are found
+		notify = false -- don't get a notification when new updates are found. Will be shown in statusline
 	}
 })
