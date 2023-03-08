@@ -10,4 +10,10 @@ return {
 		event = "VeryLazy",
 		config = true
 	},
+	{
+		'akinsho/git-conflict.nvim',
+		version = '*',
+		config = true,
+		event = 'BufReadPost',
+	}
 }
