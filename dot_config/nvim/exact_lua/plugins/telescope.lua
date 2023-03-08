@@ -3,7 +3,11 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"telescope-fzf-native.nvim",
+			"nvim-telescope/telescope-ui-select.nvim"
+		},
 		keys = {
 			{ "<leader>bf", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",         desc = "[B]rowse [F]iles with path of current buffer", noremap = true },
 			{ "<leader>bF", "<cmd>Telescope file_browser<CR>",                                       desc = "[B]rowse [F]iles",                             noremap = true },
@@ -45,6 +49,7 @@ return {
 			telescope.load_extension("file_browser")
 			telescope.load_extension("neoclip")
 			telescope.load_extension("coc")
+			telescope.load_extension("ui-select")
 		end
 	},
 	{
@@ -55,6 +60,7 @@ return {
 			"nvim-tree/nvim-web-devicons"
 		},
 	},
+	"nvim-telescope/telescope-ui-select.nvim",
 	{
 		"AckslD/nvim-neoclip.lua",
 		name = "neoclip",
