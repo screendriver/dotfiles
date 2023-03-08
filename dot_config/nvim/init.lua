@@ -1,17 +1,28 @@
-require("screendriver")
+require("options")
+require("keymaps")
 
-if vim.g.vscode then
-	vim.cmd([[
-    highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-    highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-  ]])
-	vim.keymap.set('x', 'gc', '<Plug>VSCodeCommentary')
-	vim.keymap.set('n', 'gc', '<Plug>VSCodeCommentary')
-	vim.keymap.set('o', 'gc', '<Plug>VSCodeCommentary')
-	vim.keymap.set('n', 'gcc', '<Plug>VSCodeCommentaryLine')
-	vim.keymap.set('n', '<Leader>tz', "<Cmd>call VSCodeCall('workbench.action.toggleZenMode')<CR>")
-	vim.keymap.set('n', '<Leader>ts', "<Cmd>call VSCodeCall('workbench.action.toggleSidebarVisibility')<CR>")
-	vim.keymap.set('x', '<Leader>ts', "<Cmd>call VSCodeCall('workbench.action.toggleSidebarVisibility')<CR>")
-	vim.keymap.set('n', '<Leader>rs', "<Cmd>call VSCodeCall('editor.action.rename')<CR>")
-	vim.keymap.set('n', '<Leader>qf', "<Cmd>call VSCodeNotify('editor.action.quickFix')<CR>")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+	{ "nvim-lua/plenary.nvim",       lazy = true },
+	{ "nvim-tree/nvim-web-devicons", lazy = true, config = true },
+	{ import = "plugins" },
+	"knubie/vim-kitty-navigator",
+	"tpope/vim-repeat",
+}, {
+	checker = {
+		enabled = true, -- automatically check for plugin updates
+		notify = false -- don't get a notification when new updates are found. Will be shown in statusline
+	}
+})
