@@ -373,4 +373,9 @@ require("lazy").setup({
 			vim.g.matchup_surround_enabled = 1
 		end
 	}
+}, {
+	checker = {
+		enabled = true, -- automatically check for plugin updates
+		notify = true -- get a notification when new updates are found
+	}
 })
