@@ -15,11 +15,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ "nvim-lua/plenary.nvim",       lazy = true },
-	{ "nvim-tree/nvim-web-devicons", lazy = true, config = true },
+	{
+		"nvim-lua/plenary.nvim",
+		lazy = true
+	},
+	{
+		"nvim-tree/nvim-web-devicons",
+		lazy = true,
+		config = true
+	},
 	{ import = "plugins" },
 	"knubie/vim-kitty-navigator",
 	"tpope/vim-repeat",
+	{
+		"famiu/bufdelete.nvim",
+		event = "VeryLazy"
+	}
 }, {
 	checker = {
 		enabled = true, -- automatically check for plugin updates
