@@ -19,6 +19,7 @@ vim.opt.shiftwidth = 4 -- shift 4 spaces
 vim.opt.autoindent = true -- Copy indent from current line when starting a new line
 
 vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
 
 -- Split natural directions
 vim.opt.splitright = true
