@@ -22,7 +22,7 @@ require("lazy").setup({
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
-		config = true
+		opts = {}
 	},
 	{ import = "plugins" },
 	"knubie/vim-kitty-navigator",

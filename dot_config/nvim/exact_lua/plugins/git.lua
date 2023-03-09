@@ -8,12 +8,12 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "VeryLazy",
-		config = true
+		opts = {}
 	},
 	{
 		'akinsho/git-conflict.nvim',
 		version = '*',
-		config = true,
 		event = 'BufReadPost',
+		opts = {}
 	}
 }
