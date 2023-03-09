@@ -19,7 +19,7 @@ return {
 		})
 	end,
 	keys = {
-		{ "<leader>nn", "<cmd>NnnPicker<CR>",       silent = true,  noremap = true,                       desc = "Open [Nn]n" },
-		{ "<leader>np", "<cmd>NnnPicker %:p:h<CR>", noremap = true, desc = "Open [N]nn in current [P]ath" }
+		{ "<leader>nN", "<cmd>NnnPicker<CR>",       silent = true,  noremap = true,                       desc = "Open [Nn]n" },
+		{ "<leader>nn", "<cmd>NnnPicker %:p:h<CR>", noremap = true, desc = "Open [N]nn in current [P]ath" }
 	}
 }
