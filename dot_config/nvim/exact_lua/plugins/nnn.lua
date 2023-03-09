@@ -1,10 +1,5 @@
 return {
 	"luukvbaal/nnn.nvim",
-	opts = {
-		explorer = {
-			cmd = "nnn -o"
-		},
-	},
 	config = function()
 		local nnn = require("nnn")
 
