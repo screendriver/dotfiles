@@ -23,6 +23,7 @@ require("lazy").setup({
 }, {
 	checker = {
 		enabled = true, -- automatically check for plugin updates
-		notify = false -- don't get a notification when new updates are found. Will be shown in statusline
+		notify = false, -- don't get a notification when new updates are found. Will be shown in statusline
+		frequency = 86400 -- check for updates once a day
 	}
 })
