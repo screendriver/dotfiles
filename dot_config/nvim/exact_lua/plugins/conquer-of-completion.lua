@@ -20,7 +20,7 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	config = function()
 		vim.cmd [[
-				let g:coc_global_extensions = ["coc-css", "coc-eslint", "coc-html", "coc-json", "coc-prettier", "coc-spell-checker", "coc-svelte", "@yaegassy/coc-tailwindcss3", "coc-tsserver", "coc-deno", "coc-fsharp", "coc-lightbulb", "coc-lua", "coc-yaml", "coc-marketplace"]
+				let g:coc_global_extensions = ["coc-css", "coc-eslint", "coc-html", "coc-json", "coc-prettier", "coc-spell-checker", "coc-svelte", "@yaegassy/coc-tailwindcss3", "coc-tsserver", "coc-deno", "coc-lightbulb", "coc-lua", "coc-yaml", "coc-marketplace"]
 			]]
 		-- Highlight the symbol and its references on a CursorHold event (cursor is idle)
 		vim.api.nvim_create_augroup("CocGroup", {})
