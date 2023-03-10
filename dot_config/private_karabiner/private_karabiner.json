@@ -18,6 +18,175 @@
                 },
                 "rules": [
                     {
+                        "description": "Neo2 mod 4: Map ↖ to Home and ↘︎ to End in terminal apps, remote desktop apps and virtual machines.  (move this rule above other Neo2 rules).",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    },
+                                    {
+                                        "name": "neo2_mod_4",
+                                        "type": "variable_unless",
+                                        "value": 0
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyperterm$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^org\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.microsoft\\.rdc$",
+                                            "^com\\.microsoft\\.rdc\\.",
+                                            "^net\\.sf\\.cord$",
+                                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                                            "^com\\.itap-mobile\\.qmote$",
+                                            "^com\\.nulana\\.remotixmac$",
+                                            "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                                            "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                                            "^com\\.teamviewer\\.TeamViewer$",
+                                            "^com\\.vmware\\.horizon$",
+                                            "^com\\.2X\\.Client\\.Mac$",
+                                            "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                                            "^com\\.realvnc\\.vncviewer$",
+                                            "^com\\.citrix\\.receiver\\.icaviewer",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.horizon$",
+                                            "^com\\.vmware\\.view$",
+                                            "^com\\.parallels\\.desktop$",
+                                            "^com\\.parallels\\.vm$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.vmware\\.proxyApp\\.",
+                                            "^com\\.parallels\\.winapp\\.",
+                                            "^com\\.utmapp\\.UTM$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "home"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
+                                            },
+                                            {
+                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    },
+                                    {
+                                        "name": "neo2_mod_4",
+                                        "type": "variable_unless",
+                                        "value": 0
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyperterm$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^org\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.microsoft\\.rdc$",
+                                            "^com\\.microsoft\\.rdc\\.",
+                                            "^net\\.sf\\.cord$",
+                                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                                            "^com\\.itap-mobile\\.qmote$",
+                                            "^com\\.nulana\\.remotixmac$",
+                                            "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                                            "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                                            "^com\\.teamviewer\\.TeamViewer$",
+                                            "^com\\.vmware\\.horizon$",
+                                            "^com\\.2X\\.Client\\.Mac$",
+                                            "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                                            "^com\\.realvnc\\.vncviewer$",
+                                            "^com\\.citrix\\.receiver\\.icaviewer",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.horizon$",
+                                            "^com\\.vmware\\.view$",
+                                            "^com\\.parallels\\.desktop$",
+                                            "^com\\.parallels\\.vm$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.vmware\\.proxyApp\\.",
+                                            "^com\\.parallels\\.winapp\\.",
+                                            "^com\\.utmapp\\.UTM$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "end"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Neo2 mod 3 key and layer 4 (Apple keyboards). Rule applied to Apple-made keyboards only.",
                         "manipulators": [
                             {
@@ -10709,276 +10878,6 @@
                                             "left_shift",
                                             "left_option"
                                         ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Prevent problematic keys (?, /, #, =, and ')') from being treated as option key shortcut",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.apple.Terminal",
-                                            "org.gnu.Emacs",
-                                            "com.googlecode.iterm2"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up",
-                                        "modifiers": [
-                                            "left_option",
-                                            "left_shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "h"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.apple.Terminal",
-                                            "org.gnu.Emacs",
-                                            "com.googlecode.iterm2"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up",
-                                        "modifiers": [
-                                            "left_option",
-                                            "left_shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "s"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.apple.Terminal",
-                                            "org.gnu.Emacs",
-                                            "com.googlecode.iterm2"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "z",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up",
-                                        "modifiers": [
-                                            "left_option",
-                                            "left_shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "z"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.apple.Terminal",
-                                            "org.gnu.Emacs",
-                                            "com.googlecode.iterm2"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "o",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up",
-                                        "modifiers": [
-                                            "left_option",
-                                            "left_shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "o"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                                            },
-                                            {
-                                                "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.apple.Terminal",
-                                            "org.gnu.Emacs",
-                                            "com.googlecode.iterm2"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up",
-                                        "modifiers": [
-                                            "left_option",
-                                            "left_shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "k"
                                     }
                                 ],
                                 "type": "basic"
