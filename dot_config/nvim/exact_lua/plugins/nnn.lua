@@ -1,9 +1,20 @@
 return {
 	"luukvbaal/nnn.nvim",
+	event = "VeryLazy",
 	config = function()
 		local nnn = require("nnn")
 
 		nnn.setup({
+			explorer = {
+				cmd = "nnn -G"
+			},
+			picker = {
+				cmd = "nnn -G",
+				fullscreen = false,
+				style = {
+					border = "rounded"
+				}
+			},
 			mappings = {
 				{ "<C-t>", nnn.builtin.open_in_tab },
 				{ "<C-s>", nnn.builtin.open_in_split },
