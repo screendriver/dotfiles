@@ -76,5 +76,6 @@ return {
 		{ "<C-b>",      'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"',                      mode = "i",    silent = true,                                nowait = true,                                                expr = true },
 		{ "<C-f>",      'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"',                                   mode = "v",    silent = true,                                nowait = true,                                                expr = true },
 		{ "<C-b>",      'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"',                                   mode = "v",    silent = true,                                nowait = true,                                                expr = true },
+		{ "<leader>rs", "<cmd>CocRestart<CR>",                                                                      silent = true, nowait = true,                                desc = "[R]e[s]tart coc.nvim service" }
 	}
 }
