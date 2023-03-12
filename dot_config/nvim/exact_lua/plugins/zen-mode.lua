@@ -1,6 +1,6 @@
 return {
 	"folke/zen-mode.nvim",
-	events = "VeryLazy",
+	event = "VeryLazy",
 	opts = {
 		window = {
 			options = {
