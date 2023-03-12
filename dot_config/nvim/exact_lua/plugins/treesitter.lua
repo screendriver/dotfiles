@@ -27,6 +27,7 @@ return {
 			},
 			highlight = {
 				enable = true,
+				disable = { "lua" },
 				additional_vim_regex_highlighting = false,
 			},
 			indent = {
