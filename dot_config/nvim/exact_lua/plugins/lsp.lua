@@ -1,15 +1,15 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		config = true
+		config = true,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"neovim/nvim-lspconfig"
+			"neovim/nvim-lspconfig",
 		},
-		config = true
+		config = true,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -17,7 +17,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			"glepnir/lspsaga.nvim"
+			"glepnir/lspsaga.nvim",
 		},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -25,34 +25,38 @@ return {
 
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
-				root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json")
+				root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json"),
 			})
 
 			lspconfig.astro.setup({
-				capabilities = capabilities
+				capabilities = capabilities,
 			})
-			
+
 			vim.g.markdown_fenced_languages = { "ts=typescript" }
 			lspconfig.denols.setup({
 				capabilities = capabilities,
-				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 			})
 
 			lspconfig.svelte.setup({
-				capabilities = capabilities
+				capabilities = capabilities,
 			})
 
 			lspconfig.tailwindcss.setup({
-				capabilities = capabilities
+				capabilities = capabilities,
 			})
-		end
+
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"onsails/lspkind.nvim",
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path"
+			"hrsh7th/cmp-path",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -64,10 +68,10 @@ return {
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.close(),
-					["<CR>"] = cmp.mapping.confirm {
+					["<CR>"] = cmp.mapping.confirm({
 						behavior = cmp.ConfirmBehavior.Replace,
 						select = true,
-					},
+					}),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
@@ -86,44 +90,44 @@ return {
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "buffer" },
-					{ name = "path" }
+					{ name = "path" },
 				},
 				formatting = {
 					format = lspkind.cmp_format({
 						mode = "symbol_text",
 						maxwidth = 50,
 						ellipsis_char = "...",
-					})
-				}
+					}),
+				},
 			})
-		end
+		end,
 	},
 	{
 		"glepnir/lspsaga.nvim",
 		event = "BufRead",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" }
+			{ "nvim-treesitter/nvim-treesitter" },
 		},
 		keys = {
 			{ "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Find the symbol's definition" },
 			{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" }, desc = "[C]ode [A]ction" },
 			{ "gr", "<cmd>Lspsaga rename<CR>", desc = "[R]ename symbol" },
 			{ "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "Go to [D]efinition" },
-			{ "gt", "<cmd>Lspsaga goto_type_definition<CR>", desc = "Go to [T]ype definiton" }, 
+			{ "gt", "<cmd>Lspsaga goto_type_definition<CR>", desc = "Go to [T]ype definiton" },
 			{ "[g", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next diagnostics" },
 			{ "]g", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous diagnostics" },
 			{ "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show documentation in preview window" },
 		},
 		opts = {
 			symbol_in_winbar = {
-				enable = false
+				enable = false,
 			},
 			ui = {
-				border = "rounded"
-			}
+				border = "rounded",
+			},
 		},
-		config = true
+		config = true,
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -134,10 +138,10 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.diagnostics.eslint_d.with({
-						diagnostics_format = "[eslint] #{m} (#{c})"
+						diagnostics_format = "[eslint] #{m} (#{c})",
 					}),
 					null_ls.builtins.formatting.prettierd,
-					null_ls.builtins.formatting.stylua
+					null_ls.builtins.formatting.stylua,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -151,14 +155,13 @@ return {
 									bufnr = bufnr,
 									filter = function(client)
 										return client.name == "null-ls"
-									end
+									end,
 								})
 							end,
 						})
 					end
-				end
+				end,
 			})
-		end
-	}
+		end,
+	},
 }
-
