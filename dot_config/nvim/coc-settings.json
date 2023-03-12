@@ -1,8 +1,0 @@
-{
-  "coc.preferences.extensionUpdateCheck": "weekly",
-  "coc.preferences.formatOnSave": true,
-  "typescript.suggest.completeFunctionCalls": false,
-  "javascript.suggest.completeFunctionCalls": false,
-  "tsserver.useLocalTsdk": true,
-  "svelte.enable-ts-plugin": true
-}

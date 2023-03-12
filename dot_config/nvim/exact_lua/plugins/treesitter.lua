@@ -16,6 +16,7 @@ return {
 				"gitcommit",
 				"gitignore",
 				"markdown",
+				"markdown_inline",
 				"svelte",
 				"astro",
 				"help",
