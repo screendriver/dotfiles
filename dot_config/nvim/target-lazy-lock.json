@@ -1,4 +1,5 @@
 {
+  "Ionide-vim": { "branch": "master", "commit": "a66845162ae4c2ad06d76e003c0aab235aac2ede" },
   "auto-session": { "branch": "main", "commit": "1d3dd70a2d48e0f3441128eb4fb0b437a0bf2cc4" },
   "bufdelete.nvim": { "branch": "master", "commit": "8933abc09df6c381d47dc271b1ee5d266541448e" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
