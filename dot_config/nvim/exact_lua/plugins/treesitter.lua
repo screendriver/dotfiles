@@ -32,6 +32,15 @@ return {
 			indent = {
 				enable = true
 			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = '<cr>',
+					node_incremental = '<tab>',
+					node_decremental = '<s-tab>',
+					scope_incremental = '<cr>',
+				},
+			},
 			autotag = {
 				enable = true,
 			},
