@@ -37,7 +37,8 @@ return {
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"onsails/lspkind.nvim",
-			"hrsh7th/cmp-buffer"
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path"
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -70,7 +71,8 @@ return {
 				}),
 				sources = {
 					{ name = "nvim_lsp" },
-					{ name = "buffer" }
+					{ name = "buffer" },
+					{ name = "path" }
 				},
 				formatting = {
 					format = lspkind.cmp_format({
