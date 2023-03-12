@@ -19,9 +19,9 @@ return {
 	branch = "release",
 	event = { 'BufReadPre', 'BufNewFile' },
 	config = function()
-		vim.cmd [[
-				let g:coc_global_extensions = ["coc-css", "coc-eslint", "coc-html", "coc-json", "coc-prettier", "coc-spell-checker", "coc-svelte", "@yaegassy/coc-tailwindcss3", "coc-tsserver", "coc-deno", "coc-lightbulb", "coc-lua", "coc-yaml", "coc-marketplace"]
-			]]
+		vim.g.coc_global_extensions = vim.api.nvim_eval(
+			'["coc-css", "coc-eslint", "coc-html", "coc-json", "coc-prettier", "coc-spell-checker", "coc-svelte", "@yaegassy/coc-tailwindcss3", "coc-tsserver", "coc-deno", "coc-lightbulb", "coc-lua", "coc-yaml", "coc-marketplace"]')
+
 		-- Highlight the symbol and its references on a CursorHold event (cursor is idle)
 		vim.api.nvim_create_augroup("CocGroup", {})
 		vim.api.nvim_create_autocmd("CursorHold", {
