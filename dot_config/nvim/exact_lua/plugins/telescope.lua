@@ -19,6 +19,7 @@ return {
 			{ "<leader>fk", function() require("telescope.builtin").keymaps() end,                   desc = "[F]ind [K]eymaps" },
 			{ "<leader>/",  function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "[/] Fuzzily search in current buffer" },
 			{ "<leader>fc", "<cmd>Telescope neoclip<cr>",                                            desc = "[F]ind in [C]lipboard" },
+			{ "<leader>fd", function() require("telescope.builtin").diagnostics() end,               desc = "[F]ind [D]iagnostics" },
 		},
 		opts = {
 			defaults = {
