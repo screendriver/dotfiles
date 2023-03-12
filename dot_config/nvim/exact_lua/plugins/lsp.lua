@@ -1,7 +1,21 @@
 return {
 	{
+		"williamboman/mason.nvim",
+		config = true
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig"
+		},
+		config = true
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"glepnir/lspsaga.nvim"
 		},
