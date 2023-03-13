@@ -115,8 +115,8 @@ return {
 			{ "gr", "<cmd>Lspsaga rename<CR>", desc = "[R]ename symbol" },
 			{ "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "Go to [D]efinition" },
 			{ "gt", "<cmd>Lspsaga goto_type_definition<CR>", desc = "Go to [T]ype definiton" },
-			{ "[g", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next diagnostics" },
-			{ "]g", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous diagnostics" },
+			{ "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next diagnostics" },
+			{ "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous diagnostics" },
 			{ "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show documentation in preview window" },
 		},
 		opts = {
@@ -127,7 +127,6 @@ return {
 				border = "rounded",
 			},
 		},
-		config = true,
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
