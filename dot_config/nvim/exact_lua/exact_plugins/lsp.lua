@@ -187,6 +187,7 @@ return {
 			local null_ls = require("null-ls")
 
 			null_ls.setup({
+				fallback_severity = vim.diagnostic.severity.HINT,
 				sources = {
 					null_ls.builtins.diagnostics.eslint_d.with({
 						diagnostics_format = "[eslint] #{m} (#{c})",
