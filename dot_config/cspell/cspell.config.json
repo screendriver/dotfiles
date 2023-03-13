@@ -1,0 +1,7 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": ["nvim", "neovim"],
+  "flagWords": [],
+  "ignorePaths": ["node_modules/**"]
+}
