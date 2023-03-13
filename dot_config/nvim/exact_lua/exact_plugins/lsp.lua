@@ -55,6 +55,13 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+
+			--Enable (broadcasting) snippet capability for completion
+			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
+			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
+			lspconfig.cssls.setup({
+				capabilities = snippetCapabilities,
+			})
 		end,
 	},
 	{
