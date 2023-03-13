@@ -24,7 +24,7 @@ return {
 				"yaml",
 				"nix",
 				"bash",
-				"dockerfile"
+				"dockerfile",
 			},
 			highlight = {
 				enable = true,
@@ -32,37 +32,37 @@ return {
 				additional_vim_regex_highlighting = false,
 			},
 			indent = {
-				enable = true
+				enable = true,
 			},
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = '<cr>',
-					node_incremental = '<tab>',
-					node_decremental = '<s-tab>',
-					scope_incremental = '<cr>',
+					init_selection = "<cr>",
+					node_incremental = "<tab>",
+					node_decremental = "<s-tab>",
+					scope_incremental = "<cr>",
 				},
 			},
 			autotag = {
 				enable = true,
 			},
 			matchup = {
-				enable = true
-			}
+				enable = true,
+			},
 		},
 		config = function(plugin, opts)
 			require("nvim-treesitter.configs").setup(opts)
 			require("treesitter-context").setup()
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		event = "VeryLazy",
-		dependencies = "nvim-treesitter/nvim-treesitter"
+		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 	{
 		"windwp/nvim-ts-autotag",
 		event = "VeryLazy",
-		dependencies = "nvim-treesitter/nvim-treesitter"
+		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 }

@@ -3,7 +3,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons"
+			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
 			options = {
@@ -14,7 +14,7 @@ return {
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { {
 					"filename",
-					path = 1
+					path = 1,
 				} },
 				lualine_x = {
 					{
@@ -22,11 +22,11 @@ return {
 						cond = require("lazy.status").has_updates,
 						color = { fg = "#ff9e64" },
 					},
-					"filetype"
+					"filetype",
 				},
 				lualine_y = { "progress" },
-				lualine_z = { "location" }
+				lualine_z = { "location" },
 			},
-		}
+		},
 	},
 }

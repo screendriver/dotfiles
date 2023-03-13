@@ -5,7 +5,7 @@ return {
 	opts = {
 		user_default_options = {
 			mode = "virtualtext",
-			tailwind = true
-		}
-	}
+			tailwind = true,
+		},
+	},
 }

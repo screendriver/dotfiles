@@ -8,6 +8,6 @@ return {
 			javascript = { "template_string" },
 			java = false, -- don't check treesitter on java
 		},
-		map_cr = false
+		map_cr = false,
 	},
 }
