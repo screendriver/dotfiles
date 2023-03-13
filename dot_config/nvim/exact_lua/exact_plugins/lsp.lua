@@ -157,7 +157,12 @@ return {
 		},
 		keys = {
 			{ "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Find the symbol's definition" },
-			{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" }, desc = "[C]ode [A]ction" },
+			{
+				"<leader>ca",
+				"<cmd>Lspsaga code_action<CR>",
+				mode = { "n", "v" },
+				desc = "[C]ode [A]ction",
+			},
 			{ "gr", "<cmd>Lspsaga rename<CR>", desc = "[R]ename symbol" },
 			{ "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "Go to [D]efinition" },
 			{ "gt", "<cmd>Lspsaga goto_type_definition<CR>", desc = "Go to [T]ype definiton" },
