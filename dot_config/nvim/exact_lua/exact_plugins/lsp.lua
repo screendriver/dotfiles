@@ -26,33 +26,45 @@ return {
 			"glepnir/lspsaga.nvim",
 		},
 		config = function()
+			local on_attach = function(client, bufnr)
+				vim.keymap.set("n", "<space>fo", function()
+					vim.lsp.buf.format({ async = true })
+				end, { noremap = true, silent = true, buffer = bufnr, desc = "[Fo]rmat current buffer" })
+			end
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
 			lspconfig.tsserver.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json"),
 			})
 
 			lspconfig.astro.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
 			vim.g.markdown_fenced_languages = { "ts=typescript" }
 			lspconfig.denols.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 			})
 
 			lspconfig.svelte.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
 			lspconfig.tailwindcss.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
 			lspconfig.lua_ls.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
@@ -60,6 +72,7 @@ return {
 			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
 			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
 			lspconfig.cssls.setup({
+				on_attach = on_attach,
 				capabilities = snippetCapabilities,
 			})
 		end,
