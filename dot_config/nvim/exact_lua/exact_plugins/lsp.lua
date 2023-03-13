@@ -146,6 +146,9 @@ return {
 			symbol_in_winbar = {
 				enable = false,
 			},
+			diagnostic = {
+				on_insert = false,
+			},
 			ui = {
 				border = "rounded",
 			},
