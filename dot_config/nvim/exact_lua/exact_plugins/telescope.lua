@@ -96,6 +96,7 @@ return {
 					sorting_strategy = "ascending",
 					respect_gitignore = false,
 					use_fd = true,
+					initial_mode = "normal", -- enter file browser in normal mode
 				},
 			},
 		},
