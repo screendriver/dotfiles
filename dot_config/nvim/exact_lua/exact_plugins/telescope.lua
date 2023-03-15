@@ -109,7 +109,6 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("file_browser")
 			telescope.load_extension("neoclip")
-			telescope.load_extension("coc")
 			telescope.load_extension("ui-select")
 		end,
 	},
@@ -130,5 +129,4 @@ return {
 			default_register = "+",
 		},
 	},
-	"fannheyward/telescope-coc.nvim",
 }
