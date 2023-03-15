@@ -101,8 +101,11 @@ return {
 				},
 			},
 		},
-		config = function()
+		config = function(pluginName, opts)
 			local telescope = require("telescope")
+
+			telescope.setup(opts)
+
 			telescope.load_extension("fzf")
 			telescope.load_extension("file_browser")
 			telescope.load_extension("neoclip")
