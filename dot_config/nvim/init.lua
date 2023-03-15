@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{
 		"nvim-lua/plenary.nvim",
-		lazy = true
+		lazy = true,
 	},
 	{
 		"nvim-tree/nvim-web-devicons",
@@ -29,12 +29,12 @@ require("lazy").setup({
 	"tpope/vim-repeat",
 	{
 		"famiu/bufdelete.nvim",
-		event = "VeryLazy"
-	}
+		event = "VeryLazy",
+	},
 }, {
 	checker = {
 		enabled = true, -- automatically check for plugin updates
-		notify = false, -- don't get a notification when new updates are found. Will be shown in statusline
-		frequency = 86400 -- check for updates once a day
-	}
+		notify = false, -- don't get a notification when new updates are found
+		frequency = 86400, -- check for updates once a day
+	},
 })
