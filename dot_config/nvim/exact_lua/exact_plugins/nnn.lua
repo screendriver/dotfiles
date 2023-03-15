@@ -15,6 +15,7 @@ return {
 					border = "rounded",
 				},
 			},
+			replace_netrw = "picker",
 			mappings = {
 				{ "<C-t>", nnn.builtin.open_in_tab },
 				{ "<C-s>", nnn.builtin.open_in_split },
