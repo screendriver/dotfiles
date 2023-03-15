@@ -17,3 +17,5 @@ vim.keymap.set(
 	"<cmd>let @+ = expand('%:p')<CR>",
 	{ desc = "[C]opy a Buffer's absolute [F]ile path to clipboard" }
 )
+
+vim.keymap.set("n", "<esc><esc>", ":nohl<CR>", { silent = true, desc = "Clear search highlighting" })
