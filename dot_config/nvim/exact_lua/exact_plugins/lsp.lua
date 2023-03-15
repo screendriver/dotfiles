@@ -29,6 +29,7 @@ return {
 		},
 		config = function()
 			local on_attach = function(client, bufnr)
+				-- Format current buffer
 				vim.keymap.set("n", "<space>fo", function()
 					vim.lsp.buf.format({ async = true })
 				end, { noremap = true, silent = true, buffer = bufnr, desc = "[Fo]rmat current buffer" })
@@ -210,6 +211,7 @@ return {
 					null_ls.builtins.formatting.stylua,
 				},
 				on_attach = function(client, bufnr)
+					-- Format files on save
 					if client.supports_method("textDocument/formatting") then
 						local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
