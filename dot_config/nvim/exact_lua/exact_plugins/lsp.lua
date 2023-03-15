@@ -28,11 +28,11 @@ return {
 			"glepnir/lspsaga.nvim",
 		},
 		config = function()
-			local on_attach = function(client, bufnr)
+			local on_attach = function(client, buffer)
 				-- Format current buffer
-				vim.keymap.set("n", "<space>fo", function()
+				vim.api.nvim_buf_create_user_command(buffer, "Format", function()
 					vim.lsp.buf.format({ async = true })
-				end, { noremap = true, silent = true, buffer = bufnr, desc = "[Fo]rmat current buffer" })
+				end, { desc = "Format current buffer" })
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
