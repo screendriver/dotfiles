@@ -25,7 +25,6 @@ require("lazy").setup({
 		config = true,
 	},
 	{ import = "plugins" },
-	"tpope/vim-repeat",
 }, {
 	checker = {
 		enabled = true, -- automatically check for plugin updates
