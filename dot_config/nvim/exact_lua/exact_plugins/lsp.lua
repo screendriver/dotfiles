@@ -169,8 +169,8 @@ return {
 			{ "gr", "<cmd>Lspsaga rename<CR>", desc = "[R]ename symbol" },
 			{ "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "Go to [D]efinition" },
 			{ "gt", "<cmd>Lspsaga goto_type_definition<CR>", desc = "Go to [T]ype definiton" },
-			{ "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next diagnostics" },
-			{ "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous diagnostics" },
+			{ "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next [D]iagnostics" },
+			{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous [D]iagnostics" },
 			{ "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show documentation in preview window" },
 		},
 		opts = {
