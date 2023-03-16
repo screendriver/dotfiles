@@ -27,10 +27,6 @@ require("lazy").setup({
 	{ import = "plugins" },
 	"knubie/vim-kitty-navigator",
 	"tpope/vim-repeat",
-	{
-		"famiu/bufdelete.nvim",
-		event = "VeryLazy",
-	},
 }, {
 	checker = {
 		enabled = true, -- automatically check for plugin updates
