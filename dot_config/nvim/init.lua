@@ -25,7 +25,6 @@ require("lazy").setup({
 		config = true,
 	},
 	{ import = "plugins" },
-	"knubie/vim-kitty-navigator",
 	"tpope/vim-repeat",
 }, {
 	checker = {
