@@ -18,4 +18,4 @@ vim.keymap.set(
 	{ desc = "[C]opy a Buffer's absolute [F]ile path to clipboard" }
 )
 
-vim.keymap.set("n", "<esc><esc>", ":nohl<CR>", { silent = true, desc = "Clear search highlighting" })
+vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
