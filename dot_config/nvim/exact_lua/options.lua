@@ -10,7 +10,6 @@ vim.opt.incsearch = true -- Set incremental search, like modern Browsers
 
 vim.opt.cursorline = true -- Find the current line quickly
 vim.opt.mouse = "a" -- Enable mouse support
-vim.opt.title = true -- Show title at top of the terminal
 vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 
 -- Indentation
