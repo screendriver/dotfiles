@@ -66,6 +66,8 @@ bindkey "^G" fzf-history-widget # Ctrl+R binds to fzf searcher
 
 eval "$(fnm env --use-on-cd)"
 
+export TEALDEER_CONFIG_DIR="$HOME/.config/tealdeer/"
+
 alias lg="lazygit"
 
 export NNN_OPTS="eH"
