@@ -28,18 +28,18 @@ return {
 			"glepnir/lspsaga.nvim",
 		},
 		config = function()
-			local on_attach = function(client, buffer)
+			local on_attach = function(client, bufnr)
 				-- Format current buffer
-				vim.api.nvim_buf_create_user_command(buffer, "Format", function()
+				vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
 					vim.lsp.buf.format({ async = true, bufnr = vim.api.nvim_get_current_buf() })
 				end, { desc = "Format current buffer" })
 				-- Highlight symbol under cursor
 				if client.server_capabilities.documentHighlightProvider then
 					vim.cmd([[
-    hi! LspReferenceRead cterm=bold ctermbg=red guibg=#6272a4
-    hi! LspReferenceText cterm=bold ctermbg=red guibg=#6272a4
-    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#6272a4
-  ]])
+					  hi! LspReferenceRead cterm=bold ctermbg=red guibg=#6272a4
+					  hi! LspReferenceText cterm=bold ctermbg=red guibg=#6272a4
+					  hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#6272a4
+					]])
 					vim.api.nvim_create_augroup("lsp_document_highlight", {
 						clear = false,
 					})
