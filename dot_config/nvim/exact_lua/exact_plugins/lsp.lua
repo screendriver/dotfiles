@@ -31,7 +31,12 @@ return {
 			local on_attach = function(client, bufnr)
 				-- Format current buffer
 				vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
-					vim.lsp.buf.format({ async = true, bufnr = vim.api.nvim_get_current_buf() })
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+						filter = function(client)
+							return client.name == "null-ls"
+						end,
+					})
 				end, { desc = "Format current buffer" })
 				-- Highlight symbol under cursor
 				if client.server_capabilities.documentHighlightProvider then
