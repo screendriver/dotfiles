@@ -238,7 +238,9 @@ return {
 					null_ls.builtins.diagnostics.eslint_d.with({
 						diagnostics_format = "[eslint] #{m} (#{c})",
 					}),
-					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.prettierd.with({
+						extra_filetypes = { "astro", "svelte" },
+					}),
 					null_ls.builtins.diagnostics.cspell.with({
 						diagnostic_config = {
 							virtual_text = false,
