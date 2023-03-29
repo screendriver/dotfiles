@@ -65,7 +65,7 @@ export MCFLY_KEY_SCHEME=vim
 export MCFLY_PROMPT="❯"
 eval "$(mcfly init zsh)"
 # bindkey "^R" mcfly-history-widget # Ctrl+R binds mcfly
-bindkey "^G" fzf-history-widget # Ctrl+R binds to fzf searcher
+bindkey "^G" fzf-history-widget # Ctrl+G binds to fzf searcher
 
 eval "$(fnm env --use-on-cd)"
 
