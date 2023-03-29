@@ -1,3 +1,4 @@
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local has_words_before = function()
 	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -253,7 +254,6 @@ return {
 				on_attach = function(client, bufnr)
 					-- Format files on save
 					if client.supports_method("textDocument/formatting") then
-						local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
