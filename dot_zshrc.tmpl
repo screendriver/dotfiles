@@ -17,6 +17,13 @@ export FZF_CTRL_T_OPTS="
 
 {{- if eq .chezmoi.os "linux" }}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{- end }}
 
 # Path to oh-my-zsh installation.
@@ -55,8 +62,6 @@ alias s="kitty +kitten ssh"
 {{- if eq .chezmoi.os "darwin" }}
 alias python="/opt/homebrew/bin/python3"
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval $(/opt/homebrew/bin/brew shellenv)
 {{- end }}
 
