@@ -107,6 +107,16 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.docker_compose_language_service.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.dockerls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
 			--Enable (broadcasting) snippet capability for completion
 			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
 			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
