@@ -2,14 +2,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.dotnet/tools:$PATH
 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export VISUAL="nvim"
-  export EDITOR="nvim"
-else
-  export VISUAL="nvim"
-  export EDITOR="nvim"
-fi
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 export LESS="-Ri"
 export PAGER="less -Ri"
