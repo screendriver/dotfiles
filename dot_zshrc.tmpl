@@ -15,6 +15,10 @@ export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
+{{- if eq .chezmoi.os "linux" }}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+{{- end }}
+
 # Path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
