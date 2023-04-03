@@ -117,6 +117,20 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.yamlls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				settings = {
+					yaml = {
+						schemas = {
+							["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "./gitlab-ci.yml",
+							["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+							["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+						},
+					},
+				},
+			})
+
 			--Enable (broadcasting) snippet capability for completion
 			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
 			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
