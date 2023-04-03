@@ -131,6 +131,11 @@ return {
 				},
 			})
 
+			lspconfig.taplo.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
 			--Enable (broadcasting) snippet capability for completion
 			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
 			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
