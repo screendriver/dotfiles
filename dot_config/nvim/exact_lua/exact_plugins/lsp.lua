@@ -265,11 +265,10 @@ return {
 			null_ls.setup({
 				fallback_severity = vim.diagnostic.severity.HINT,
 				sources = {
+					null_ls.builtins.code_actions.cspell,
+					null_ls.builtins.code_actions.eslint_d,
 					null_ls.builtins.diagnostics.eslint_d.with({
 						diagnostics_format = "[eslint] #{m} (#{c})",
-					}),
-					null_ls.builtins.formatting.prettierd.with({
-						extra_filetypes = { "astro", "svelte" },
 					}),
 					null_ls.builtins.diagnostics.cspell.with({
 						diagnostic_config = {
@@ -277,7 +276,9 @@ return {
 						},
 						extra_args = { "--config", vim.fn.expand("~/.config/cspell/cspell.config.json") },
 					}),
-					null_ls.builtins.code_actions.cspell,
+					null_ls.builtins.formatting.prettierd.with({
+						extra_filetypes = { "astro", "svelte" },
+					}),
 					null_ls.builtins.formatting.stylua,
 				},
 				on_attach = function(client, bufnr)
