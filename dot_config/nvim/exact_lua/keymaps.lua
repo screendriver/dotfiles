@@ -19,3 +19,6 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
+
+vim.keymap.set("n", "<c-n>", ":bnext<CR>", { desc = "Go to [N]next Buffer" })
+vim.keymap.set("n", "<c-p>", ":bprev<CR>", { desc = "Go to [P]revious Buffer" })
