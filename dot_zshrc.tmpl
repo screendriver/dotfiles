@@ -17,8 +17,15 @@ export FZF_CTRL_T_OPTS="
 
 {{- if eq .chezmoi.os "linux" }}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+{{- if eq .chezmoi.osRelease.id "debian" }}
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+{{- end }}
+
+{{- if eq .chezmoi.osRelease.id "arch" }}
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+{{- end }}
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
