@@ -19,7 +19,7 @@ return {
 				"markdown_inline",
 				"svelte",
 				"astro",
-				"help",
+				"vimdoc",
 				"lua",
 				"yaml",
 				"nix",
