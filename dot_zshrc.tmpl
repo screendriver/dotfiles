@@ -81,7 +81,9 @@ eval "$(mcfly init zsh)"
 # bindkey "^R" mcfly-history-widget # Ctrl+R binds mcfly
 bindkey "^G" fzf-history-widget # Ctrl+G binds to fzf searcher
 
-eval "$(fnm env --use-on-cd)"
+if command -v fnm &> /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+fi
 
 export TEALDEER_CONFIG_DIR="$HOME/.config/tealdeer/"
 
