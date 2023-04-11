@@ -25,6 +25,7 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{- if eq .chezmoi.osRelease.id "arch" }}
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+export DIFFPROG="delta --side-by-side --syntax-theme=Dracula"
 {{- end }}
 {{- end }}
 
