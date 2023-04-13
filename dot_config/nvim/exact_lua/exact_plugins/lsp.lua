@@ -26,7 +26,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			"glepnir/lspsaga.nvim",
+			"nvimdev/lspsaga.nvim",
 		},
 		config = function()
 			local on_attach = function(client, bufnr)
@@ -217,7 +217,7 @@ return {
 		end,
 	},
 	{
-		"glepnir/lspsaga.nvim",
+		"nvimdev/lspsaga.nvim",
 		event = "BufRead",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
