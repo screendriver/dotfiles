@@ -49,6 +49,25 @@ return {
 			matchup = {
 				enable = true,
 			},
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = { query = "@function.outer", desc = "Select [A]round [F]unction" },
+						["if"] = { query = "@function.inner", desc = "Select [I]n [F]unction" },
+					},
+				},
+				swap = {
+					enable = true,
+					swap_next = {
+						["<leader>a"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
+					},
+					swap_previous = {
+						["<leader>A"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
+					},
+				},
+			},
 		},
 		config = function(plugin, opts)
 			require("nvim-treesitter.configs").setup(opts)
@@ -57,7 +76,10 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		event = "VeryLazy",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 	{
