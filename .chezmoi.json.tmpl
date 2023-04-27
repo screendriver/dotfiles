@@ -1,3 +1,4 @@
+{{- $isHeadless := promptBoolOnce . "isHeadless" "Is this a remote/headless machine" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $gitSigningKey := promptStringOnce . "gitSigningKey" "Git signing key" -}}
 
@@ -11,6 +12,7 @@
   },
   "data": {
     "email": {{ $email | quote }},
-    "gitSigningKey": {{ $gitSigningKey | quote }}
+    "gitSigningKey": {{ $gitSigningKey | quote }},
+    "isHeadless": {{ $isHeadless }}
   }
 }
