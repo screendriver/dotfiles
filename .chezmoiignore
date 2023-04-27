@@ -1,3 +1,7 @@
 README.md
 .config/nvim/target-lazy-lock.json
 .config/btop/target-btop.conf
+{{- if .isHeadless }}
+.config/nvim/lazy-lock.json
+.config/nvim/lua/plugins
+{{- end }}
