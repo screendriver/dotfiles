@@ -29,11 +29,6 @@ export DIFFPROG="delta --side-by-side --syntax-theme=Dracula"
 {{- end }}
 {{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{- end }}
-
 # Path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -56,8 +51,17 @@ plugins=(
 )
 
 {{- if eq .chezmoi.os "darwin" }}
+eval $($(brew --prefix)/bin/brew shellenv)
+
+export PATH=$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Enable completions that are installed with Homebrew
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+alias python="$(brew --prefix)/bin/python3"
 {{- end }}
 
 source $ZSH/oh-my-zsh.sh
@@ -69,11 +73,6 @@ alias icat="kitty +kitten icat"
 alias d="kitty +kitten diff"
 alias s="kitty +kitten ssh"
 alias hrg="kitty +kitten hyperlinked_grep --smart-case --hidden"
-{{- if eq .chezmoi.os "darwin" }}
-alias python="/opt/homebrew/bin/python3"
-
-eval $(/opt/homebrew/bin/brew shellenv)
-{{- end }}
 
 eval "$(starship init zsh)"
 
