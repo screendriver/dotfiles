@@ -67,12 +67,20 @@ return {
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			--Enable (broadcasting) snippet capability for completion
+			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
+			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
 			local lspconfig = require("lspconfig")
 
 			lspconfig.tsserver.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json"),
+			})
+
+			lspconfig.jsonls.setup({
+				on_attach = on_attach,
+				capabilities = snippetCapabilities,
 			})
 
 			lspconfig.astro.setup({
@@ -136,9 +144,6 @@ return {
 				capabilities = capabilities,
 			})
 
-			--Enable (broadcasting) snippet capability for completion
-			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
-			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
 			lspconfig.cssls.setup({
 				on_attach = on_attach,
 				capabilities = snippetCapabilities,
