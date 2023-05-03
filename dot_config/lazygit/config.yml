@@ -14,8 +14,7 @@ git:
     colorArg: always
     pager: delta --dark --paging=never
 os:
-  editCommand: "nvim"
-  editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
+  editPreset: "nvim"
 keybinding:
   commits:
     moveDownCommit: "<c-d>"
