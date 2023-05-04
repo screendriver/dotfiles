@@ -1,10 +1,10 @@
 return {
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VimEnter",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		lazy = false,
 		opts = {
 			options = {
 				theme = "dracula",
