@@ -2,7 +2,7 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "3.*",
 	dependencies = "nvim-tree/nvim-web-devicons",
-	event = "BufReadPost",
+	lazy = false,
 	opts = {
 		options = {
 			right_mouse_command = false,
