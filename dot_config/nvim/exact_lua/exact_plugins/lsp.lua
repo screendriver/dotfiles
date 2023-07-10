@@ -95,11 +95,6 @@ return {
 				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 			})
 
-			lspconfig.svelte.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
 			lspconfig.tailwindcss.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
@@ -282,7 +277,7 @@ return {
 						extra_args = { "--config", vim.fn.expand("~/.config/cspell/cspell.config.json") },
 					}),
 					null_ls.builtins.formatting.prettierd.with({
-						extra_filetypes = { "astro", "svelte" },
+						extra_filetypes = { "astro" },
 					}),
 					null_ls.builtins.formatting.stylua,
 				},
