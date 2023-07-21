@@ -5,7 +5,7 @@ gui:
   language: "en"
   showFileTree: false
   showRandomTip: false
-  showIcons: true
+  nerdFontsVersion: "3"
   showCommandLog: false
 git:
   merging:
