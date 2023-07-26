@@ -1,7 +1,13 @@
 return {
-	"terrortylor/nvim-comment",
+	"numToStr/Comment.nvim",
 	event = "VeryLazy",
-	config = function()
-		require("nvim_comment").setup({ comment_empty = false })
+	opts = {
+		ignore = "^$",
+	},
+	config = function(pluginName, opts)
+		require("Comment").setup(opts)
+
+		local ft = require("Comment.ft")
+		ft.set("astro", "<!--%s-->")
 	end,
 }
