@@ -81,6 +81,24 @@ return {
 			lspconfig.jsonls.setup({
 				on_attach = on_attach,
 				capabilities = snippetCapabilities,
+				settings = {
+					json = {
+						schemas = {
+							{
+								fileMatch = { "package.json" },
+								url = "https://json.schemastore.org/package.json",
+							},
+							{
+								fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+								url = "http://json.schemastore.org/tsconfig.json",
+							},
+							{
+								fileMatch = { ".eslintrc.json", ".eslintrc" },
+								url = "http://json.schemastore.org/eslintrc.json",
+							},
+						},
+					},
+				},
 			})
 
 			lspconfig.astro.setup({
