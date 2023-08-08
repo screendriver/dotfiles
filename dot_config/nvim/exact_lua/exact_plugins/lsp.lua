@@ -96,6 +96,10 @@ return {
 								fileMatch = { ".eslintrc.json", ".eslintrc" },
 								url = "http://json.schemastore.org/eslintrc.json",
 							},
+							{
+								fileMatch = { "vercel.json" },
+								url = "https://openapi.vercel.sh/vercel.json",
+							},
 						},
 					},
 				},
