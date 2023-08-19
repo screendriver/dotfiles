@@ -10,18 +10,6 @@ return {
 		},
 		keys = {
 			{
-				"<leader>bf",
-				"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-				desc = "[B]rowse [F]iles with path of current buffer",
-				noremap = true,
-			},
-			{
-				"<leader>bF",
-				"<cmd>Telescope file_browser<CR>",
-				desc = "[B]rowse [F]iles",
-				noremap = true,
-			},
-			{
 				"<leader>ff",
 				function()
 					require("telescope.builtin").find_files()
@@ -89,17 +77,6 @@ return {
 					find_command = { "fd", "--type", "file", "--hidden" },
 				},
 			},
-			extensions = {
-				file_browser = {
-					grouped = true,
-					hidden = true,
-					sorting_strategy = "ascending",
-					respect_gitignore = false,
-					use_fd = true,
-					default_selection_index = 2, -- navigate in normal mode as if you are in nnn
-					initial_mode = "normal", -- enter file browser in normal mode
-				},
-			},
 		},
 		config = function(pluginName, opts)
 			local telescope = require("telescope")
@@ -107,18 +84,9 @@ return {
 			telescope.setup(opts)
 
 			telescope.load_extension("fzf")
-			telescope.load_extension("file_browser")
 			telescope.load_extension("neoclip")
 			telescope.load_extension("ui-select")
 		end,
-	},
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
 	},
 	"nvim-telescope/telescope-ui-select.nvim",
 	{
