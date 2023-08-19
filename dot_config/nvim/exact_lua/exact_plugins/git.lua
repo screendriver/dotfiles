@@ -10,10 +10,4 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
-	{
-		"akinsho/git-conflict.nvim",
-		version = "*",
-		event = "BufReadPost",
-		opts = {},
-	},
 }
