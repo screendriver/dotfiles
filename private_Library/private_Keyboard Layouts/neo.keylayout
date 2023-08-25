@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<!--Last edited by Ukelele version 3.3.0.249 on 2019-08-16 at 17:12 (CEST)-->
-<keyboard group="126" id="-7884" name="Deutsch (Neo 2)" maxout="3">
+<!--Last edited by Ukelele version 346 on 2022-06-19 at 16:37 (CEST)-->
+<keyboard group="126" id="-15581" name="Deutsch (Neo 2)" maxout="3">
     <layouts>
         <layout first="0" last="0" mapSet="138" modifiers="30"/>
     </layouts>
@@ -101,12 +101,13 @@
             <key code="67" output="*"/>
             <key code="69" output="+"/>
             <key code="70" output="&#x001C;"/>
-            <key code="71" output="&#x001B;"/>
+            <key code="71" output="&#x0009;"/>
             <key code="72" output="&#x001F;"/>
             <key code="75" output="/"/>
             <key code="76" output="&#x000D;"/>
             <key code="77" output="&#x001E;"/>
             <key code="78" output="-"/>
+            <key code="79" output=""/>
             <key code="80" output="&#x0010;"/>
             <key code="81" output="="/>
             <key code="82" output="0"/>
@@ -207,14 +208,30 @@
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
             <key code="64" output="&#x0010;"/>
+            <key code="65" output="."/>
             <key code="66" output="*"/>
+            <key code="67" action="*"/>
+            <key code="69" action="+ 1"/>
             <key code="70" output="+"/>
-            <key code="71" output="&#x001B;"/>
+            <key code="71" action="&#x0009;"/>
             <key code="72" output="="/>
+            <key code="75" action="/ 1"/>
             <key code="76" output="&#x0003;"/>
             <key code="77" output="/"/>
+            <key code="78" action="- 1"/>
             <key code="79" output="&#x0010;"/>
             <key code="80" output="&#x0010;"/>
+            <key code="81" output=""/>
+            <key code="82" output="␣"/>
+            <key code="83" output="♦"/>
+            <key code="84" output="♥"/>
+            <key code="85" output="♠"/>
+            <key code="86" output="♣"/>
+            <key code="87" action="€"/>
+            <key code="88" output="‣"/>
+            <key code="89" output="✔"/>
+            <key code="91" output="✘"/>
+            <key code="92" output="†"/>
             <key code="96" output="&#x0010;"/>
             <key code="97" output="&#x0010;"/>
             <key code="98" output="&#x0010;"/>
@@ -510,30 +527,30 @@
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
             <key code="64" output="&#x0010;"/>
-            <key code="65" output=""/>
+            <key code="65" output=","/>
             <key code="66" output="&#x001D;"/>
-            <key code="67" output=""/>
-            <key code="69" output=""/>
+            <key code="67" output="⋅"/>
+            <key code="69" output="±"/>
             <key code="70" output="&#x001C;"/>
-            <key code="71" output="&#x001B;"/>
+            <key code="71" output="="/>
             <key code="72" output="&#x001F;"/>
-            <key code="75" output=""/>
+            <key code="75" output="÷"/>
             <key code="76" output="&#x0003;"/>
             <key code="77" output="&#x001E;"/>
-            <key code="78" output=""/>
+            <key code="78" output="−"/>
             <key code="79" output="&#x0010;"/>
             <key code="80" output="&#x0010;"/>
             <key code="81" output=""/>
-            <key code="82" output=""/>
-            <key code="83" output=""/>
-            <key code="84" output=""/>
-            <key code="85" output=""/>
-            <key code="86" output=""/>
-            <key code="87" output=""/>
-            <key code="88" output=""/>
-            <key code="89" output=""/>
-            <key code="91" output=""/>
-            <key code="92" output=""/>
+            <key code="82" output="%"/>
+            <key code="83" output="↔"/>
+            <key code="84" output="↓"/>
+            <key code="85" output="⇌"/>
+            <key code="86" output="←"/>
+            <key code="87" output=":"/>
+            <key code="88" output="→"/>
+            <key code="89" output="↕"/>
+            <key code="91" output="↑"/>
+            <key code="92" output="⃗"/>
             <key code="96" output="&#x0010;"/>
             <key code="97" output="&#x0010;"/>
             <key code="98" output="&#x0010;"/>
@@ -616,7 +633,7 @@
             <key code="46" action="μ"/>
             <key code="47" action="ϑ"/>
             <key code="48" output="&#x0009;"/>
-            <key code="49" action=" "/>
+            <key code="49" action=" "/>
             <key code="50" output=""/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
@@ -624,14 +641,30 @@
             <key code="55" output=""/>
             <key code="58" output=""/>
             <key code="64" output="&#x0010;"/>
+            <key code="65" action="′"/>
             <key code="66" output="*"/>
+            <key code="67" action="⊙"/>
+            <key code="69" action="⊕"/>
             <key code="70" output="+"/>
-            <key code="71" output="&#x001B;"/>
+            <key code="71" action="≈"/>
             <key code="72" output="="/>
+            <key code="75" action="⌀"/>
             <key code="76" output="&#x0003;"/>
             <key code="77" output="/"/>
+            <key code="78" action="⊖"/>
             <key code="79" output="&#x0010;"/>
             <key code="80" output="&#x0010;"/>
+            <key code="81" output=""/>
+            <key code="82" action="‰"/>
+            <key code="83" action="Ebene 4 und 6"/>
+            <key code="84" action="∪"/>
+            <key code="85" action="≥"/>
+            <key code="86" action="⊂"/>
+            <key code="87" action="⊶"/>
+            <key code="88" action="⊃"/>
+            <key code="89" action="≪"/>
+            <key code="91" action="∩"/>
+            <key code="92" action="≫"/>
             <key code="96" output="&#x0010;"/>
             <key code="97" output="&#x0010;"/>
             <key code="98" output="&#x0010;"/>
@@ -652,12 +685,12 @@
             <key code="113" output="&#x0010;"/>
             <key code="114" output="&#x0005;"/>
             <key code="115" output="&#x0001;"/>
-            <key code="116" output="&#x000B;"/>
+            <key code="116" action="&#x000B;"/>
             <key code="117" output="&#x007F;"/>
             <key code="118" output="&#x0010;"/>
             <key code="119" output="&#x0004;"/>
             <key code="120" output="&#x0010;"/>
-            <key code="121" output="&#x000C;"/>
+            <key code="121" action="&#x000C;"/>
             <key code="122" output="&#x0010;"/>
             <key code="123" output="&#x001C;"/>
             <key code="124" output="&#x001D;"/>
@@ -922,7 +955,7 @@
             <key code="46" output="&#x000D;"/>
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
-            <key code="49" action="5"/>
+            <key code="49" output=" "/>
             <key code="50" output="&#x003C;"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
@@ -1098,14 +1131,32 @@
         </keyMap>
     </keyMapSet>
     <actions>
+        <action id="&#x0009;">
+            <when state="none" output="&#x0009;"/>
+            <when state="Ebene 4 und 6" output="≠"/>
+        </action>
+        <action id="&#x000B;">
+            <when state="none" next="Bugfixes"/>
+        </action>
+        <action id="&#x000C;">
+            <when state="none" next="Ebene 4 und 6"/>
+        </action>
         <action id="&#x0027;">
             <when state="none" output="&#x0027;"/>
+        </action>
+        <action id="*">
+            <when state="none" output="*"/>
+            <when state="Ebene 4 und 6" output="×"/>
         </action>
         <action id="+">
             <when state="none" output="+"/>
             <when state="Ebene 1 T1 Zirkumflex" output="⁺"/>
             <when state="compose" next="compose +"/>
             <when state="compose -" output="∓"/>
+        </action>
+        <action id="+ 1">
+            <when state="none" output="+"/>
+            <when state="Ebene 4 und 6" output="∓"/>
         </action>
         <action id="-">
             <when state="none" output="-"/>
@@ -1114,11 +1165,19 @@
             <when state="compose +" output="±"/>
             <when state="compose h" output="ℏ"/>
         </action>
+        <action id="- 1">
+            <when state="none" output="-"/>
+            <when state="Ebene 4 und 6" output="∖"/>
+        </action>
         <action id="/">
             <when state="none" output="/"/>
             <when state="compose" next="Ebene 3 T3 Schrägstrich"/>
             <when state="compose less" next="compose less /"/>
             <when state="compso greater" next="compose greater /"/>
+        </action>
+        <action id="/ 1">
+            <when state="none" output="/"/>
+            <when state="Ebene 4 und 6" output="⁄"/>
         </action>
         <action id="0">
             <when state="none" next="Ebene 1 T2 Gravis"/>
@@ -2449,7 +2508,7 @@
             <when state="Ebene 5 T1 Haken" output="Ɣ"/>
         </action>
         <action id="5">
-            <when state="none" output="&#x003C;"/>
+            <when state="none" next="Ebene 1 T1 Zirkumflex"/>
         </action>
         <action id="50">
             <when state="none" output="X"/>
@@ -3092,9 +3151,12 @@
             <when state="compose ~" output="≳"/>
             <when state="compso greater" output="≫"/>
         </action>
+        <action id="Bugfixes">
+            <when state="none" next="Bugfixes"/>
+        </action>
         <action id="Ebene 4 und 6">
-            <when state="none" next="Ebene 4 und 6"/>
-            <when state="Ebene 4 und 6" output="∪"/>
+            <when state="none" output="≤"/>
+            <when state="Ebene 4 und 6" output="⌊"/>
         </action>
         <action id="`">
             <when state="none" next="Ebene 1 T2 Gravis"/>
@@ -3129,8 +3191,8 @@
             <when state="compose ~" output="≈"/>
             <when state="compso greater" output="≳"/>
         </action>
-        <action id=" ">
-            <when state="none" output=" "/>
+        <action id=" ">
+            <when state="none" output=" "/>
             <when state="Ebene 1 T1 Zirkumflex" output="ˆ"/>
             <when state="Ebene 1 T2 Gravis" output="`"/>
             <when state="Ebene 1 T3 Akut" output="´"/>
@@ -3269,6 +3331,14 @@
             <when state="none" next="Ebene 5 Spiritus lenis"/>
             <when state="Ebene 4 und 6" next="Ebene 6 T3 Breve"/>
         </action>
+        <action id="‰">
+            <when state="none" output="‰"/>
+            <when state="Ebene 4 und 6" output="□"/>
+        </action>
+        <action id="′">
+            <when state="none" output="′"/>
+            <when state="Ebene 4 und 6" output="″"/>
+        </action>
         <action id="₀">
             <when state="none" output="₀"/>
             <when state="Ebene 4 und 6" output="∅"/>
@@ -3284,6 +3354,61 @@
         <action id="₃">
             <when state="none" output="₃"/>
             <when state="Ebene 4 und 6" output="∧"/>
+        </action>
+        <action id="€">
+            <when state="none" output="€"/>
+        </action>
+        <action id="∩">
+            <when state="none" output="∩"/>
+            <when state="Ebene 4 und 6" output="⋂"/>
+        </action>
+        <action id="∪">
+            <when state="none" output="∪"/>
+            <when state="Ebene 4 und 6" output="⋃"/>
+        </action>
+        <action id="≈">
+            <when state="none" output="≈"/>
+            <when state="Ebene 4 und 6" output="≡"/>
+        </action>
+        <action id="≥">
+            <when state="none" output="≥"/>
+            <when state="Ebene 4 und 6" output="⌋"/>
+        </action>
+        <action id="≪">
+            <when state="none" output="≪"/>
+            <when state="Ebene 4 und 6" output="⌈"/>
+        </action>
+        <action id="≫">
+            <when state="none" output="≫"/>
+            <when state="Ebene 4 und 6" output="⌉"/>
+        </action>
+        <action id="⊂">
+            <when state="none" output="⊂"/>
+            <when state="Ebene 4 und 6" output="⊆"/>
+        </action>
+        <action id="⊃">
+            <when state="none" output="⊃"/>
+            <when state="Ebene 4 und 6" output="⊇"/>
+        </action>
+        <action id="⊕">
+            <when state="none" output="⊕"/>
+            <when state="Ebene 4 und 6" output="∔"/>
+        </action>
+        <action id="⊖">
+            <when state="none" output="⊖"/>
+            <when state="Ebene 4 und 6" output="∸"/>
+        </action>
+        <action id="⊙">
+            <when state="none" output="⊙"/>
+            <when state="Ebene 4 und 6" output="⊗"/>
+        </action>
+        <action id="⊶">
+            <when state="none" output="⊶"/>
+            <when state="Ebene 4 und 6" output="⊷"/>
+        </action>
+        <action id="⌀">
+            <when state="none" output="⌀"/>
+            <when state="Ebene 4 und 6" output="∣"/>
         </action>
         <action id="♀">
             <when state="none" output="♀"/>
