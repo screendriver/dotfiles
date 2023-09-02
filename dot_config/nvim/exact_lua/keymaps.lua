@@ -18,7 +18,7 @@ vim.keymap.set(
 	{ desc = "[C]opy a Buffer's absolute [F]ile path to clipboard" }
 )
 
-vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
+vim.keymap.set("n", "<esc><esc>", ":nohl<CR>", { silent = true, desc = "Clear search highlighting" })
 
 vim.keymap.set("n", "<c-n>", ":bnext<CR>", { desc = "Go to [N]next Buffer" })
 vim.keymap.set("n", "<c-p>", ":bprev<CR>", { desc = "Go to [P]revious Buffer" })
