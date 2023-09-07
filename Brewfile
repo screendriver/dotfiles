@@ -21,6 +21,7 @@ brew "lazygit"
 brew "less"
 brew "lsd"
 brew "macos-trash"
+brew "mas"
 brew "mdcat"
 brew "nano"
 brew "neovim"
@@ -55,3 +56,10 @@ cask "spotify"
 cask "the-unarchiver"
 cask "vivaldi"
 cask "vlc"
+mas "Battery Indicator", id: 1206020918
+mas "Color Picker", id: 1545870783
+mas "Dato", id: 1470584107
+mas "Enpass", id: 732710998
+mas "FE File Explorer Pro", id: 1466198841
+mas "Plain Text Editor", id: 1572202501
+mas "Pure Paste", id: 1611378436
