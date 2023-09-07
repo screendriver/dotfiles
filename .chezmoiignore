@@ -8,3 +8,6 @@ README.md
 .config/nvim/lazy-lock.json
 .config/nvim/lua/plugins
 {{- end }}
+{{- if ne .chezmoi.os "darwin" }}
+Brewfile
+{{- end }}
