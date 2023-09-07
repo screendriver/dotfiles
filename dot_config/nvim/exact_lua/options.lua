@@ -1,6 +1,7 @@
 vim.g.mapleader = " " -- Use <Space> as leader key
 vim.opt.number = true -- Show line numbers
 vim.opt.relativenumber = true -- Show line number relative to the current line
+vim.opt.swapfile = false -- Disable swap file
 
 -- Search
 vim.opt.ignorecase = true -- Ignore letter case when searching
