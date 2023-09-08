@@ -1,0 +1,16 @@
+theme = "dracula"
+
+[editor]
+cursorline = true
+line-number = "relative"
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
