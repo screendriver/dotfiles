@@ -63,5 +63,6 @@ mas "Color Picker", id: 1545870783
 mas "Dato", id: 1470584107
 mas "Enpass", id: 732710998
 mas "FE File Explorer Pro", id: 1466198841
+mas "Lungo", id: 1263070803
 mas "Plain Text Editor", id: 1572202501
 mas "Pure Paste", id: 1611378436
