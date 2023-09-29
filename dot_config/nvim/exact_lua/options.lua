@@ -36,3 +36,5 @@ vim.g.loaded_netrw = true
 vim.g.loaded_netrwPlugin = true
 vim.opt.termguicolors = true -- Force GUI colors in terminals
 vim.opt.iskeyword:append("-") -- Words-with-a-dash should be treated as a whole word
+
+vim.opt.conceallevel = 1 -- Display JSON files without any quotes
