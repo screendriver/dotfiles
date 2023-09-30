@@ -100,6 +100,10 @@ return {
 								fileMatch = { "vercel.json" },
 								url = "https://openapi.vercel.sh/vercel.json",
 							},
+							{
+								fileMatch = { "renovate.json", ".renovaterc", ".renovaterc.json" },
+								url = "https://docs.renovatebot.com/renovate-schema.json",
+							},
 						},
 					},
 				},
