@@ -118,13 +118,6 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.g.markdown_fenced_languages = { "ts=typescript" }
-			lspconfig.denols.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-			})
-
 			lspconfig.svelte.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
