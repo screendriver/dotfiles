@@ -104,6 +104,10 @@ return {
 								fileMatch = { "renovate.json", ".renovaterc", ".renovaterc.json" },
 								url = "https://docs.renovatebot.com/renovate-schema.json",
 							},
+							{
+								fileMatch = { ".prettierrc", ".prettierrc.json" },
+								url = "https://json.schemastore.org/prettierrc.json",
+							},
 						},
 					},
 				},
