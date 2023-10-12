@@ -21,10 +21,14 @@ return {
 		},
 	},
 	{
+		"b0o/schemastore.nvim",
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"b0o/schemastore.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"nvimdev/lspsaga.nvim",
 		},
@@ -83,32 +87,31 @@ return {
 				capabilities = snippetCapabilities,
 				settings = {
 					json = {
-						schemas = {
-							{
-								fileMatch = { "package.json" },
-								url = "https://json.schemastore.org/package.json",
+						schemas = require("schemastore").json.schemas({
+							select = {
+								"package.json",
+								"tsconfig.json",
+								".eslintrc",
+								"Vercel",
+								"Renovate",
+								"prettierrc.json",
+								"Stryker Mutator",
+								"AVA Configuration",
+								"AWS CDK cdk.json",
+								"cspell",
+								"Web App Manifest",
+								"jscpd Configuration",
 							},
-							{
-								fileMatch = { "tsconfig.json", "tsconfig.*.json" },
-								url = "http://json.schemastore.org/tsconfig.json",
+							extra = {
+								{
+									name = "Dependency Cruiser",
+									description = "Dependency Cruiser configuration file",
+									fileMatch = { "dependency-cruiser.config.json" },
+									url = "https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/src/schema/configuration.schema.json",
+								},
 							},
-							{
-								fileMatch = { ".eslintrc.json", ".eslintrc" },
-								url = "http://json.schemastore.org/eslintrc.json",
-							},
-							{
-								fileMatch = { "vercel.json" },
-								url = "https://openapi.vercel.sh/vercel.json",
-							},
-							{
-								fileMatch = { "renovate.json", ".renovaterc", ".renovaterc.json" },
-								url = "https://docs.renovatebot.com/renovate-schema.json",
-							},
-							{
-								fileMatch = { ".prettierrc", ".prettierrc.json" },
-								url = "https://json.schemastore.org/prettierrc.json",
-							},
-						},
+						}),
+						validate = { enable = true },
 					},
 				},
 			})
@@ -153,11 +156,18 @@ return {
 				capabilities = capabilities,
 				settings = {
 					yaml = {
-						schemas = {
-							["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "./gitlab-ci.yml",
-							["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-							["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+						schemaStore = {
+							enable = false,
+							url = "",
 						},
+						schemas = require("schemastore").yaml.schemas({
+							select = {
+								"gitlab-ci",
+								"GitHub Workflow",
+								"GitHub Action",
+								"docker-compose.yml",
+							},
+						}),
 					},
 				},
 			})
