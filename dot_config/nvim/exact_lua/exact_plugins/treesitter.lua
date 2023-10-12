@@ -28,7 +28,11 @@ return {
 			},
 			highlight = {
 				enable = true,
-				disable = { "lua" },
+				disable = function()
+					if string.find(vim.bo.filetype, "chezmoitmpl") then
+						return true
+					end
+				end,
 				additional_vim_regex_highlighting = false,
 			},
 			indent = {
