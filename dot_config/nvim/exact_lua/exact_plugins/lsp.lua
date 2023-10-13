@@ -33,6 +33,15 @@ return {
 			"nvimdev/lspsaga.nvim",
 		},
 		config = function()
+			vim.diagnostic.config({
+				virtual_text = {
+					source = true,
+				},
+				float = {
+					source = true,
+				},
+			})
+
 			local on_attach = function(client, bufnr)
 				-- Format current buffer
 				vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
@@ -75,6 +84,8 @@ return {
 			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
 			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
 			local lspconfig = require("lspconfig")
+
+			lspconfig.eslint.setup({})
 
 			lspconfig.tsserver.setup({
 				on_attach = on_attach,
@@ -299,10 +310,6 @@ return {
 				fallback_severity = vim.diagnostic.severity.HINT,
 				sources = {
 					null_ls.builtins.code_actions.cspell,
-					null_ls.builtins.code_actions.eslint_d,
-					null_ls.builtins.diagnostics.eslint_d.with({
-						diagnostics_format = "[eslint] #{m} (#{c})",
-					}),
 					null_ls.builtins.diagnostics.cspell.with({
 						diagnostic_config = {
 							virtual_text = false,
