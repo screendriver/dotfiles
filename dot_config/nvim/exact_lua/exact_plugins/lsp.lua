@@ -316,7 +316,7 @@ return {
 						},
 						extra_args = { "--config", vim.fn.expand("~/.config/cspell/cspell.config.json") },
 					}),
-					null_ls.builtins.formatting.prettierd.with({
+					null_ls.builtins.formatting.prettier.with({
 						extra_filetypes = { "astro", "svelte" },
 					}),
 					null_ls.builtins.formatting.stylua,
