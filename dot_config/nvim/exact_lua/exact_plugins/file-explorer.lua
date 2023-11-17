@@ -11,6 +11,11 @@ return {
 		view_options = {
 			show_hidden = true,
 		},
+		float = {
+			win_options = {
+				winblend = 3,
+			},
+		},
 	},
 	keys = {
 		{
