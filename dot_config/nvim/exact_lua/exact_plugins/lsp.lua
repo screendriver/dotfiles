@@ -183,6 +183,8 @@ return {
 				},
 			})
 
+			lspconfig.taplo.setup({})
+
 			lspconfig.cssls.setup({
 				on_attach = on_attach,
 				capabilities = snippetCapabilities,
