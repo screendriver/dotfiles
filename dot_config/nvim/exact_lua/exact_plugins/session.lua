@@ -1,8 +1,15 @@
 return {
-	"rmagatti/auto-session",
-	lazy = false,
-	init = function()
-		vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+	"olimorris/persisted.nvim",
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+	},
+	opts = {
+		use_git_branch = false,
+		autosave = true,
+		autoload = true,
+	},
+	config = function(pluginName, opts)
+		require("persisted").setup(opts)
+		require("telescope").load_extension("persisted")
 	end,
-	config = true,
 }
