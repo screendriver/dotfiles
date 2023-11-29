@@ -20,5 +20,6 @@ vim.keymap.set(
 
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
 
-vim.keymap.set("n", "<c-n>", ":bnext<CR>", { desc = "Go to [N]next Buffer" })
-vim.keymap.set("n", "<c-p>", ":bprev<CR>", { desc = "Go to [P]revious Buffer" })
+vim.keymap.set("n", "<C-n>", ":bnext<CR>", { desc = "Go to [N]next Buffer" })
+vim.keymap.set("n", "<C-p>", ":bprev<CR>", { desc = "Go to [P]revious Buffer" })
+vim.keymap.set("n", "<C-w>", ":bd<CR>", { desc = "Unload buffer and delete it from the buffer list" })
