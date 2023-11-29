@@ -2,7 +2,9 @@ return {
 	{
 		"ggandor/leap.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = "tpope/vim-repeat",
+		dependencies = {
+			"tpope/vim-repeat",
+		},
 		config = function()
 			local leap = require("leap")
 
