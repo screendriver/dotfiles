@@ -6,7 +6,6 @@ return {
 		default_file_explorer = true,
 		columns = {
 			"icon",
-			"size",
 		},
 		buf_options = {
 			buflisted = true,
