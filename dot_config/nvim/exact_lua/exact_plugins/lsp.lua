@@ -87,12 +87,6 @@ return {
 
 			lspconfig.eslint.setup({})
 
-			lspconfig.tsserver.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-				root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json"),
-			})
-
 			lspconfig.jsonls.setup({
 				on_attach = on_attach,
 				capabilities = snippetCapabilities,
@@ -356,5 +350,10 @@ return {
 			automatic_installation = true,
 			automatic_setup = false,
 		},
+	},
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
 	},
 }
