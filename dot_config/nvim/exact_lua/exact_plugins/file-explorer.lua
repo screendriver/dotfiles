@@ -27,5 +27,11 @@ return {
 			noremap = true,
 			desc = "Open [Oi]l in a floating window",
 		},
+		{
+			"-",
+			"<CMD>Oil<CR>",
+			noremap = true,
+			desc = "Open parent directory",
+		},
 	},
 }
