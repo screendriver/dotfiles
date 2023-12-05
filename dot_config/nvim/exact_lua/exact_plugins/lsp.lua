@@ -30,7 +30,6 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"b0o/schemastore.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			"nvimdev/lspsaga.nvim",
 		},
 		config = function()
 			vim.diagnostic.config({
@@ -258,7 +257,7 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
-		event = "BufRead",
+		event = "LspAttach",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
