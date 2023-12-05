@@ -263,7 +263,7 @@ return {
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 		keys = {
-			{ "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Find the symbol's definition" },
+			{ "gf", "<cmd>Lspsaga finder<CR>", desc = "Find the symbol's definition" },
 			{
 				"<leader>ca",
 				"<cmd>Lspsaga code_action<CR>",
