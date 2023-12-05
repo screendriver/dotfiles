@@ -21,13 +21,6 @@ return {
 	},
 	keys = {
 		{
-			"<leader>oi",
-			"<cmd>Oil --float<CR>",
-			silent = true,
-			noremap = true,
-			desc = "Open [Oi]l in a floating window",
-		},
-		{
 			"-",
 			"<CMD>Oil<CR>",
 			noremap = true,
