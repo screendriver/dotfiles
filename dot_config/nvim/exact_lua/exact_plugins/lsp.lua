@@ -1,94 +1,40 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local has_words_before = function()
-	unpack = unpack or table.unpack
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 return {
 	{
-		"williamboman/mason.nvim",
-		config = true,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"neovim/nvim-lspconfig",
-		},
-		opts = {
-			automatic_installation = true,
-		},
-	},
-	{
-		"b0o/schemastore.nvim",
-	},
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"b0o/schemastore.nvim",
-			"hrsh7th/cmp-nvim-lsp",
-		},
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v3.x",
+		lazy = true,
+		init = function()
+			local lsp_zero = require("lsp-zero")
+
+			lsp_zero.on_attach(function(client, bufnr)
+				lsp_zero.default_keymaps({ buffer = bufnr })
+			end)
+		end,
 		config = function()
 			vim.diagnostic.config({
-				virtual_text = {
-					source = true,
-				},
+				virtual_text = false,
 				float = {
 					source = true,
 				},
 			})
 
-			local on_attach = function(client, bufnr)
-				-- Format current buffer
-				vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
-					vim.lsp.buf.format({
-						bufnr = bufnr,
-						filter = function(client)
-							return client.name == "null-ls"
-						end,
-					})
-				end, { desc = "Format current buffer" })
-				-- Highlight symbol under cursor
-				if client.server_capabilities.documentHighlightProvider then
-					vim.cmd([[
-					  hi! LspReferenceRead cterm=bold ctermbg=red guibg=#6272a4
-					  hi! LspReferenceText cterm=bold ctermbg=red guibg=#6272a4
-					  hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#6272a4
-					]])
-					vim.api.nvim_create_augroup("lsp_document_highlight", {
-						clear = false,
-					})
-					vim.api.nvim_clear_autocmds({
-						buffer = bufnr,
-						group = "lsp_document_highlight",
-					})
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						group = "lsp_document_highlight",
-						buffer = bufnr,
-						callback = vim.lsp.buf.document_highlight,
-					})
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						group = "lsp_document_highlight",
-						buffer = bufnr,
-						callback = vim.lsp.buf.clear_references,
-					})
-				end
-			end
+			local lsp_zero = require("lsp-zero")
+			lsp_zero.extend_lspconfig()
 
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			--Enable (broadcasting) snippet capability for completion
-			local snippetCapabilities = vim.lsp.protocol.make_client_capabilities()
-			snippetCapabilities.textDocument.completion.completionItem.snippetSupport = true
+			lsp_zero.setup_servers({
+				"astro",
+				"svelte",
+				"tailwindcss",
+				"lua_ls",
+				"docker_compose_language_service",
+				"dockerls",
+				"taplo",
+				"cssls",
+			})
+
 			local lspconfig = require("lspconfig")
 
-			lspconfig.eslint.setup({})
-
 			lspconfig.jsonls.setup({
-				on_attach = on_attach,
-				capabilities = snippetCapabilities,
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas({
@@ -120,44 +66,7 @@ return {
 				},
 			})
 
-			lspconfig.astro.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
-			lspconfig.svelte.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
-			lspconfig.tailwindcss.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
-			lspconfig.lua_ls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
-			lspconfig.marksman.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
-			lspconfig.docker_compose_language_service.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
-			lspconfig.dockerls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
 			lspconfig.yamlls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
 				settings = {
 					yaml = {
 						schemaStore = {
@@ -176,78 +85,33 @@ return {
 				},
 			})
 
-			lspconfig.taplo.setup({})
+			require("typescript-tools").setup({})
 
-			lspconfig.cssls.setup({
-				on_attach = on_attach,
-				capabilities = snippetCapabilities,
+			require("mason").setup({})
+			require("mason-lspconfig").setup({
+				automatic_installation = true,
+				ensure_installed = {},
+				handlers = {
+					lsp_zero.default_setup,
+				},
 			})
-		end,
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"onsails/lspkind.nvim",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
-		},
-		config = function()
-			local cmp = require("cmp")
-			local lspkind = require("lspkind")
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			local cmp = require("cmp")
+			local cmp_action = require("lsp-zero").cmp_action()
 
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
 				mapping = cmp.mapping.preset.insert({
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<C-f>"] = cmp_action.luasnip_jump_forward(),
+					["<C-b>"] = cmp_action.luasnip_jump_backward(),
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.close(),
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
-					}),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						local luasnip = require("luasnip")
-
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						local luasnip = require("luasnip")
-
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
 				}),
-				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "buffer" },
-					{ name = "path" },
-					{ name = "luasnip" },
-				},
 				formatting = {
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
+					fields = { "abbr", "kind", "menu" },
+					format = require("lspkind").cmp_format({
+						mode = "symbol",
 						maxwidth = 50,
 						ellipsis_char = "...",
 					}),
@@ -255,12 +119,34 @@ return {
 			})
 		end,
 	},
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "b0o/schemastore.nvim" },
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+		},
+	},
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{ "L3MON4D3/LuaSnip" },
+		},
+	},
+	{ "L3MON4D3/LuaSnip" },
+	{ "onsails/lspkind.nvim" },
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "VonHeikemen/lsp-zero.nvim", "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	},
 	{
 		"nvimdev/lspsaga.nvim",
-		event = "LspAttach",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
+			{ "VonHeikemen/lsp-zero.nvim" },
 		},
 		keys = {
 			{ "gf", "<cmd>Lspsaga finder<CR>", desc = "Find the symbol's definition" },
@@ -293,66 +179,58 @@ return {
 		},
 	},
 	{
-		"nvimtools/none-ls.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		event = "BufReadPost",
+		"mfussenegger/nvim-lint",
 		config = function()
-			local null_ls = require("null-ls")
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				markdown = { "markdownlint" },
+				javascript = { "eslint" },
+				typescript = { "eslint" },
+				typescriptreact = { "eslint" },
+				svelte = { "eslint" },
+			}
 
-			null_ls.setup({
-				fallback_severity = vim.diagnostic.severity.HINT,
-				sources = {
-					null_ls.builtins.code_actions.cspell,
-					null_ls.builtins.diagnostics.cspell.with({
-						diagnostic_config = {
-							virtual_text = false,
-						},
-						extra_args = { "--config", vim.fn.expand("~/.config/cspell/cspell.config.json") },
-					}),
-					null_ls.builtins.formatting.prettier.with({
-						extra_filetypes = { "astro", "svelte" },
-					}),
-					null_ls.builtins.formatting.stylua,
-				},
-				on_attach = function(client, bufnr)
-					-- Format files on save
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({
-									bufnr = bufnr,
-									filter = function(client)
-										return client.name == "null-ls"
-									end,
-								})
-							end,
-						})
-					end
+			lint.linters.cspell.args = {
+				"lint",
+				"--no-color",
+				"--no-progress",
+				"--no-summary",
+				"--config",
+				vim.fn.expand("~/.config/cspell/cspell.config.json"),
+			}
+
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+				callback = function()
+					lint.try_lint()
+					lint.try_lint("cspell")
 				end,
 			})
 		end,
 	},
 	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"nvimtools/none-ls.nvim",
-		},
-		opts = {
-			ensure_installed = nil,
-			automatic_installation = true,
-			automatic_setup = false,
-		},
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					html = { "prettier" },
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					typescriptreact = { "prettier" },
+					svelte = { "prettier" },
+					markdown = { "markdownlint" },
+				},
+				format_on_save = function(bufnr)
+					local bufname = vim.api.nvim_buf_get_name(bufnr)
+					if bufname:match("/node_modules/") then
+						return
+					end
+
+					return { timeout_ms = 500, lsp_fallback = true }
+				end,
+			})
+		end,
 	},
 }
