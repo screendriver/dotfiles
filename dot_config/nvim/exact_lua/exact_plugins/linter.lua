@@ -2,12 +2,9 @@ return {
 	"mfussenegger/nvim-lint",
 	config = function()
 		local lint = require("lint")
+
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
-			javascript = { "eslint" },
-			typescript = { "eslint" },
-			typescriptreact = { "eslint" },
-			svelte = { "eslint" },
 		}
 
 		lint.linters.cspell.args = {

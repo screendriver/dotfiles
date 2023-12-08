@@ -22,6 +22,7 @@ return {
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.setup_servers({
+				"eslint",
 				"astro",
 				"svelte",
 				"tailwindcss",
