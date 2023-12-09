@@ -10,12 +10,12 @@ vim.keymap.set(
 	"<cmd>let @+ = expand('%')<CR>",
 	{ desc = "[C]opy a Buffer's relative [F]ile path to clipboard" }
 )
--- Copy a Buffer's absolute file path to clipboard
+-- Copy a Buffer's relative file path to clipboard
 vim.keymap.set(
 	"n",
 	"<leader>cF",
-	"<cmd>let @+ = expand('%:p')<CR>",
-	{ desc = "[C]opy a Buffer's absolute [F]ile path to clipboard" }
+	"<cmd>let @+ = expand('%')<CR>",
+	{ desc = "[C]opy a Buffer's relative [F]ile path to clipboard" }
 )
 
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
