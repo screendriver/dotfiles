@@ -15,7 +15,7 @@ return {
 	keys = {
 		{ "<leader>gb", "<cmd>BufferLinePick<CR>", silent = true, desc = "[G]o to [B]uffer" },
 		{ "<leader>bd", "<cmd>BufferLinePickClose<CR>", silent = true, desc = "[B]uffer [D]elete" },
-		{ "]b", "<cmd>BufferLineCycleNext<CR><CR>", silent = true, desc = "Go to next [B]uffer" },
-		{ "[b", "<cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Go to previous [B]uffer" },
+		{ "<C-n>", "<cmd>BufferLineCycleNext<CR><CR>", silent = true, desc = "Go to [N]next Buffer" },
+		{ "<C-p>", "<cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Go to [P]revious Buffer" },
 	},
 }
