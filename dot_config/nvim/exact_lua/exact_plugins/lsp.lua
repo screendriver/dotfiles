@@ -104,6 +104,7 @@ return {
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "buffer" },
+					{ name = "path" },
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -141,6 +142,7 @@ return {
 		},
 	},
 	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "onsails/lspkind.nvim" },
 	{
