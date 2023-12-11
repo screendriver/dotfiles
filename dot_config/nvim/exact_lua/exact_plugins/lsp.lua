@@ -9,6 +9,7 @@ return {
 
 			lsp_zero.on_attach(function(client, bufnr)
 				lsp_zero.default_keymaps({ buffer = bufnr })
+				lsp_zero.highlight_symbol(client, bufnr)
 			end)
 		end,
 		config = function()
