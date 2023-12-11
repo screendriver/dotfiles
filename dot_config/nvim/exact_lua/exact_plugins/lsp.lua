@@ -3,6 +3,7 @@ return {
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 		lazy = true,
+		dependencies = { "windwp/nvim-autopairs" },
 		init = function()
 			local lsp_zero = require("lsp-zero")
 
@@ -123,6 +124,9 @@ return {
 					}),
 				},
 			})
+
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 	{ "williamboman/mason.nvim" },
