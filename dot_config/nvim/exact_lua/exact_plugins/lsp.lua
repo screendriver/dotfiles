@@ -101,6 +101,10 @@ return {
 			local cmp_action = require("lsp-zero").cmp_action()
 
 			cmp.setup({
+				sources = {
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
 					["<C-Space>"] = cmp.mapping.complete(),
@@ -136,6 +140,7 @@ return {
 			{ "L3MON4D3/LuaSnip" },
 		},
 	},
+	{ "hrsh7th/cmp-buffer" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "onsails/lspkind.nvim" },
 	{
