@@ -2,6 +2,7 @@ return {
 	"mfussenegger/nvim-lint",
 	config = function()
 		local lint = require("lint")
+		local cspellNamespace = lint.get_namespace("cspell")
 
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
@@ -15,6 +16,7 @@ return {
 			"--config",
 			vim.fn.expand("~/.config/cspell/cspell.config.json"),
 		}
+		vim.diagnostic.config({ virtual_text = false }, cspellNamespace)
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
 			callback = function()

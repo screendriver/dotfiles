@@ -14,7 +14,7 @@ return {
 		end,
 		config = function()
 			vim.diagnostic.config({
-				virtual_text = false,
+				virtual_text = true,
 				float = {
 					source = true,
 				},
