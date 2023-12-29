@@ -19,5 +19,3 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
-
-vim.keymap.set("n", "<C-w>", ":bd<CR>", { desc = "Unload buffer and delete it from the buffer list" })
