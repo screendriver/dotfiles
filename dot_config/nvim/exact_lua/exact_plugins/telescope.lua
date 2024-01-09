@@ -70,6 +70,13 @@ return {
 				end,
 				desc = "[F]ind [D]iagnostics",
 			},
+			{
+				"<leader>fj",
+				function()
+					require("telescope.builtin").jumplist()
+				end,
+				desc = "[F]ind [J]umplist entries",
+			},
 		},
 		opts = {
 			pickers = {
