@@ -1,4 +1,3 @@
-tap "cantino/mcfly"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
