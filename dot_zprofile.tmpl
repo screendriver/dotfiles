@@ -1,3 +1,53 @@
 {{- if eq .chezmoi.os "darwin" -}}
 eval $(/opt/homebrew/bin/brew shellenv)
 {{- end }}
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# remove duplicate entries from $PATH
+# zsh uses $path array along with $PATH
+typeset -U PATH path
+
+{{- if eq .chezmoi.os "darwin" }}
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+{{- end }}
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.dotnet/tools:/snap/bin:$PATH"
+
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+export VISUAL="nvim"
+export EDITOR="nvim"
+
+export LESS="-Ri"
+export PAGER="less -Ri"
+
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
+export DIFFPROG="delta --side-by-side --syntax-theme=Dracula"
+{{- end }}
+
+export ZSH=~/.oh-my-zsh
+
+# Use fd in fzf instead of the default find command
+export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+export MCFLY_RESULTS=30
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_PROMPT="❯"
+
+export TEALDEER_CONFIG_DIR="$HOME/.config/tealdeer/"
+
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
+export NNN_OPTS="eH"
+export NNN_COLORS="#0a1b2c3d;1234"
+export NNN_FCOLORS="c1e2272e006033f7c6d6abc4"
+export NNN_SPLIT="v"
+{{- if eq .chezmoi.os "darwin" }}
+export NNN_TRASH="1"
+{{- end }}
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="c:chksum;d:fzcd;o:fzopen;p:preview-tui;u:getplugs;z:autojump"
