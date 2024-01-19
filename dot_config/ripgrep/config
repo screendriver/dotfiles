@@ -1,3 +1,4 @@
+--hyperlink-format=kitty
 --smart-case
 --hidden
 --glob=!.git/*
