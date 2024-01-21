@@ -11,7 +11,6 @@ vim.opt.incsearch = true -- Set incremental search, like modern Browsers
 
 vim.opt.cursorline = true -- Find the current line quickly
 vim.opt.mouse = "a" -- Enable mouse support
-vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 
 -- Indentation
 vim.opt.tabstop = 4 -- 1 Tab = 2 Spaces
