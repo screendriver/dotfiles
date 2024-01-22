@@ -24,6 +24,13 @@ return {
 				desc = "[F]ind by [G]rep",
 			},
 			{
+				"<leader>fw",
+				function()
+					require("telescope.builtin").grep_string()
+				end,
+				desc = "[F]ind [W]ord under cursor",
+			},
+			{
 				"<leader>fb",
 				function()
 					require("telescope.builtin").buffers()
