@@ -59,11 +59,6 @@ return {
 				desc = "[/] Fuzzily search in current buffer",
 			},
 			{
-				"<leader>fc",
-				"<cmd>Telescope neoclip<cr>",
-				desc = "[F]ind in [C]lipboard",
-			},
-			{
 				"<leader>fd",
 				function()
 					require("telescope.builtin").diagnostics()
@@ -91,19 +86,10 @@ return {
 			telescope.setup(opts)
 
 			telescope.load_extension("fzf")
-			telescope.load_extension("neoclip")
 			telescope.load_extension("ui-select")
 		end,
 	},
 	"nvim-telescope/telescope-ui-select.nvim",
-	{
-		"AckslD/nvim-neoclip.lua",
-		name = "neoclip",
-		dependencies = { "nvim-telescope/telescope.nvim" },
-		opts = {
-			default_register = "+",
-		},
-	},
 	{
 		"piersolenski/telescope-import.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
