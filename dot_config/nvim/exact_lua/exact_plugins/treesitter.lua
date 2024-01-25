@@ -43,10 +43,8 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<cr>",
-					node_incremental = "<tab>",
-					node_decremental = "<s-tab>",
-					scope_incremental = "<cr>",
+					node_incremental = "v",
+					node_decremental = "V",
 				},
 			},
 			autotag = {
