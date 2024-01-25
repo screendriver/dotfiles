@@ -25,6 +25,8 @@ return {
 				"nix",
 				"bash",
 				"dockerfile",
+				"rust",
+				"toml",
 			},
 			highlight = {
 				enable = true,
