@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
+brew "bash"
 brew "bat"
 brew "btop"
 brew "pkg-config"
