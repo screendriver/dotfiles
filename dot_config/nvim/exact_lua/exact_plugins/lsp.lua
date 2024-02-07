@@ -193,6 +193,10 @@ return {
 			ui = {
 				border = "rounded",
 			},
+			rename = {
+				in_select = false,
+				auto_save = true,
+			},
 		},
 	},
 }
