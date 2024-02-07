@@ -13,7 +13,7 @@ return {
 			markdown = { "prettier", "markdownlint" },
 			json = { "prettier" },
 			jsonc = { "prettier" },
-			yaml = { "prettier" },
+			yaml = { "yamlfmt" },
 			dart = { "dart_format" },
 		},
 		format_on_save = function(bufnr)
