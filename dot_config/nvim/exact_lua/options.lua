@@ -17,6 +17,7 @@ vim.opt.tabstop = 4 -- 1 Tab = 4 Spaces
 vim.opt.shiftwidth = 4 -- shift 4 spaces
 vim.opt.autoindent = true -- Copy indent from current line when starting a new line
 vim.opt.smartindent = false -- Don't smart autoindenting when starting a new line. Treesitter is doing that for us
+vim.opt.expandtab = false -- Don't insert <Tab> when too many spaces are inserted
 
 vim.opt.list = true
 vim.opt.listchars:append("space:⋅")
