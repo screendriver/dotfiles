@@ -27,6 +27,7 @@ return {
 				"dockerfile",
 				"rust",
 				"toml",
+				"terraform",
 			},
 			highlight = {
 				enable = true,
