@@ -52,7 +52,7 @@ return {
 								"Stryker Mutator",
 								"AVA Configuration",
 								"AWS CDK cdk.json",
-								"cspell",
+								"CSpell (cspell.json)",
 								"Web App Manifest",
 								"jscpd Configuration",
 							},
