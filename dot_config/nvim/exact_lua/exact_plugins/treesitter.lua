@@ -28,6 +28,7 @@ return {
 				"rust",
 				"toml",
 				"terraform",
+				"dart",
 			},
 			highlight = {
 				enable = true,
@@ -58,6 +59,7 @@ return {
 			textobjects = {
 				select = {
 					enable = true,
+					disable = { "dart" },
 					lookahead = true,
 					keymaps = {
 						["af"] = { query = "@function.outer", desc = "Select [A]round [F]unction" },
@@ -66,6 +68,7 @@ return {
 				},
 				swap = {
 					enable = true,
+					disable = { "dart" },
 					swap_next = {
 						["<leader>a"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
 					},
