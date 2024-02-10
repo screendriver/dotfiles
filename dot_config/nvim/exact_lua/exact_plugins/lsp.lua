@@ -41,30 +41,7 @@ return {
 			lspconfig.jsonls.setup({
 				settings = {
 					json = {
-						schemas = require("schemastore").json.schemas({
-							select = {
-								"package.json",
-								"tsconfig.json",
-								".eslintrc",
-								"Vercel",
-								"Renovate",
-								"prettierrc.json",
-								"Stryker Mutator",
-								"AVA Configuration",
-								"AWS CDK cdk.json",
-								"CSpell (cspell.json)",
-								"Web App Manifest",
-								"jscpd Configuration",
-							},
-							extra = {
-								{
-									name = "Dependency Cruiser",
-									description = "Dependency Cruiser configuration file",
-									fileMatch = { "dependency-cruiser.config.json" },
-									url = "https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/src/schema/configuration.schema.json",
-								},
-							},
-						}),
+						schemas = require("schemastore").json.schemas(),
 						validate = { enable = true },
 					},
 				},
@@ -77,14 +54,7 @@ return {
 							enable = false,
 							url = "",
 						},
-						schemas = require("schemastore").yaml.schemas({
-							select = {
-								"gitlab-ci",
-								"GitHub Workflow",
-								"GitHub Action",
-								"docker-compose.yml",
-							},
-						}),
+						schemas = require("schemastore").yaml.schemas(),
 					},
 				},
 			})
