@@ -7,6 +7,8 @@ return {
 			"nvim-lua/plenary.nvim",
 			"telescope-fzf-native.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
+			"akinsho/flutter-tools.nvim",
+			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "1.x" },
 		},
 		keys = {
 			{
@@ -19,9 +21,9 @@ return {
 			{
 				"<leader>fg",
 				function()
-					require("telescope.builtin").live_grep()
+					require("telescope").extensions.live_grep_args.live_grep_args()
 				end,
-				desc = "[F]ind by [G]rep",
+				desc = "[F]ind by [G]rep with arguments",
 			},
 			{
 				"<leader>fw",
@@ -95,6 +97,7 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("ui-select")
 			telescope.load_extension("flutter")
+			telescope.load_extension("live_grep_args")
 		end,
 	},
 	"nvim-telescope/telescope-ui-select.nvim",
