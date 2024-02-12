@@ -1,3 +1,7 @@
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
+local actions = require("telescope.actions")
+
 return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{
@@ -14,70 +18,70 @@ return {
 			{
 				"<leader>ff",
 				function()
-					require("telescope.builtin").find_files()
+					builtin.find_files()
 				end,
 				desc = "[F]ind [F]iles",
 			},
 			{
 				"<leader>fg",
 				function()
-					require("telescope").extensions.live_grep_args.live_grep_args()
+					telescope.extensions.live_grep_args.live_grep_args()
 				end,
 				desc = "[F]ind by [G]rep with arguments",
 			},
 			{
 				"<leader>fw",
 				function()
-					require("telescope.builtin").grep_string()
+					builtin.grep_string()
 				end,
 				desc = "[F]ind [W]ord under cursor",
 			},
 			{
 				"<leader>fb",
 				function()
-					require("telescope.builtin").buffers()
+					builtin.buffers()
 				end,
 				desc = "[F]ind in [B]uffers",
 			},
 			{
 				"<leader>fh",
 				function()
-					require("telescope.builtin").help_tags()
+					builtin.help_tags()
 				end,
 				desc = "[F]ind [H]elp",
 			},
 			{
 				"<leader>fm",
 				function()
-					require("telescope.builtin").marks()
+					builtin.marks()
 				end,
 				desc = "[F]ind [M]arks",
 			},
 			{
 				"<leader>fk",
 				function()
-					require("telescope.builtin").keymaps()
+					builtin.keymaps()
 				end,
 				desc = "[F]ind [K]eymaps",
 			},
 			{
 				"<leader>/",
 				function()
-					require("telescope.builtin").current_buffer_fuzzy_find()
+					builtin.current_buffer_fuzzy_find()
 				end,
 				desc = "[/] Fuzzily search in current buffer",
 			},
 			{
 				"<leader>fd",
 				function()
-					require("telescope.builtin").diagnostics()
+					builtin.diagnostics()
 				end,
 				desc = "[F]ind [D]iagnostics",
 			},
 			{
 				"<leader>fj",
 				function()
-					require("telescope.builtin").jumplist()
+					builtin.jumplist()
 				end,
 				desc = "[F]ind [J]umplist entries",
 			},
@@ -91,14 +95,19 @@ return {
 				},
 			},
 			pickers = {
+				buffers = {
+					mappings = {
+						i = {
+							["<C-b>"] = actions.delete_buffer,
+						},
+					},
+				},
 				find_files = {
 					find_command = { "fd", "--type", "file", "--hidden" },
 				},
 			},
 		},
 		config = function(pluginName, opts)
-			local telescope = require("telescope")
-
 			telescope.setup(opts)
 
 			telescope.load_extension("fzf")
@@ -112,7 +121,7 @@ return {
 		"piersolenski/telescope-import.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
-			require("telescope").load_extension("import")
+			telescope.load_extension("import")
 		end,
 	},
 }
