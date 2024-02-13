@@ -44,6 +44,13 @@ return {
 				desc = "[F]ind in [B]uffers",
 			},
 			{
+				"<leader>fr",
+				function()
+					builtin.registers()
+				end,
+				desc = "[F]ind in [R]egisters",
+			},
+			{
 				"<leader>fh",
 				function()
 					builtin.help_tags()
