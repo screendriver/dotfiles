@@ -5,5 +5,10 @@ return {
 		"nvim-lua/plenary.nvim",
 		"stevearc/dressing.nvim",
 	},
+	opts = {
+		closing_tags = {
+			enabled = false,
+		},
+	},
 	config = true,
 }
