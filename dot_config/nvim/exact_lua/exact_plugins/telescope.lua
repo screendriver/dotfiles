@@ -13,6 +13,7 @@ return {
 			"nvim-telescope/telescope-ui-select.nvim",
 			"akinsho/flutter-tools.nvim",
 			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "1.x" },
+			"debugloop/telescope-undo.nvim",
 		},
 		keys = {
 			{
@@ -92,6 +93,13 @@ return {
 				end,
 				desc = "[F]ind [J]umplist entries",
 			},
+			{
+				"<leader>u",
+				function()
+					telescope.extensions.undo.undo()
+				end,
+				desc = "[U]ndo history",
+			},
 		},
 		opts = {
 			defaults = {
@@ -113,6 +121,18 @@ return {
 					find_command = { "fd", "--type", "file", "--hidden" },
 				},
 			},
+			extensions = {
+				undo = {
+					use_delta = true,
+					side_by_side = false,
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							preview_width = 0.7,
+						},
+					},
+				},
+			},
 		},
 		config = function(pluginName, opts)
 			telescope.setup(opts)
@@ -121,6 +141,7 @@ return {
 			telescope.load_extension("ui-select")
 			telescope.load_extension("flutter")
 			telescope.load_extension("live_grep_args")
+			telescope.load_extension("undo")
 		end,
 	},
 	"nvim-telescope/telescope-ui-select.nvim",
