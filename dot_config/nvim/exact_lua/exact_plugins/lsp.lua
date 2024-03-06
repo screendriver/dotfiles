@@ -24,6 +24,7 @@ return {
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.setup_servers({
+				"tsserver",
 				"eslint",
 				"astro",
 				"svelte",
@@ -58,8 +59,6 @@ return {
 					},
 				},
 			})
-
-			require("typescript-tools").setup({})
 
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
@@ -123,10 +122,6 @@ return {
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "onsails/lspkind.nvim" },
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "VonHeikemen/lsp-zero.nvim", "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-	},
 	{
 		"nvimdev/lspsaga.nvim",
 		event = "LspAttach",
