@@ -25,7 +25,6 @@ return {
 				"nix",
 				"bash",
 				"dockerfile",
-				"rust",
 				"toml",
 				"terraform",
 				"dart",

@@ -34,7 +34,6 @@ return {
 				"dockerls",
 				"taplo",
 				"cssls",
-				"rust-analyzer",
 			})
 
 			local lspconfig = require("lspconfig")
