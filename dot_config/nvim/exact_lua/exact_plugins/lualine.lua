@@ -7,7 +7,7 @@ return {
 		lazy = false,
 		opts = {
 			options = {
-				theme = "dracula",
+				theme = "dracula-nvim",
 			},
 			sections = {
 				lualine_a = { "mode" },
