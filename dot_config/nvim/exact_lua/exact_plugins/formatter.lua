@@ -4,20 +4,19 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			html = { "prettier", "rustywind" },
+			html = { "prettier" },
 			css = { "prettier" },
 			javascript = { "prettier" },
-			javascriptreact = { "prettier", "rustywind" },
+			javascriptreact = { "prettier" },
 			typescript = { "prettier" },
-			typescriptreact = { "prettier", "rustywind" },
-			svelte = { "prettier", "rustywind" },
-			astro = { "prettier", "rustywind" },
+			typescriptreact = { "prettier" },
+			astro = { "prettier" },
 			markdown = { "prettier", "markdownlint" },
 			json = { "prettier" },
 			jsonc = { "prettier" },
 			yaml = { "yamlfmt", "prettier" },
 			dart = { "dart_format" },
-			vue = { "prettier", "rustywind" },
+			vue = { "prettier" },
 		},
 		format_on_save = function(bufnr)
 			local bufname = vim.api.nvim_buf_get_name(bufnr)
