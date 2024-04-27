@@ -34,9 +34,22 @@ return {
 				"dockerls",
 				"taplo",
 				"cssls",
+				"volar",
+			})
+
+			require("mason").setup({})
+			require("mason-lspconfig").setup({
+				automatic_installation = true,
+				ensure_installed = {},
+				handlers = {
+					lsp_zero.default_setup,
+				},
 			})
 
 			local lspconfig = require("lspconfig")
+			local vue_language_server_path = require("mason-registry")
+				.get_package("vue-language-server")
+				:get_install_path() .. "/node_modules/@vue/language-server"
 
 			lspconfig.jsonls.setup({
 				settings = {
@@ -59,13 +72,17 @@ return {
 				},
 			})
 
-			require("mason").setup({})
-			require("mason-lspconfig").setup({
-				automatic_installation = true,
-				ensure_installed = {},
-				handlers = {
-					lsp_zero.default_setup,
+			lspconfig.tsserver.setup({
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = vue_language_server_path,
+							languages = { "vue" },
+						},
+					},
 				},
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
 
 			local cmp = require("cmp")
