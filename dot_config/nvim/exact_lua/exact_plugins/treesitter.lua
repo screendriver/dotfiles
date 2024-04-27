@@ -17,7 +17,6 @@ return {
 				"gitignore",
 				"markdown",
 				"markdown_inline",
-				"svelte",
 				"astro",
 				"vimdoc",
 				"lua",
