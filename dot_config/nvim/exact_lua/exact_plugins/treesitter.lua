@@ -27,6 +27,7 @@ return {
 				"toml",
 				"terraform",
 				"dart",
+				"vue",
 			},
 			highlight = {
 				enable = true,
