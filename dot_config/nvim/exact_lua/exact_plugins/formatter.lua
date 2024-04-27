@@ -17,6 +17,7 @@ return {
 			jsonc = { "prettier" },
 			yaml = { "yamlfmt", "prettier" },
 			dart = { "dart_format" },
+			vue = { "prettier", "rustywind" },
 		},
 		format_on_save = function(bufnr)
 			local bufname = vim.api.nvim_buf_get_name(bufnr)
