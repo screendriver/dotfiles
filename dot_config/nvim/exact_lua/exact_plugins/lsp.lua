@@ -25,7 +25,6 @@ return {
 
 			lsp_zero.setup_servers({
 				"tsserver",
-				"eslint",
 				"astro",
 				"svelte",
 				"tailwindcss",
