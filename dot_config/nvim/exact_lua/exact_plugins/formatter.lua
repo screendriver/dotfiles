@@ -25,7 +25,7 @@ return {
 				return
 			end
 
-			return { timeout_ms = 500, lsp_fallback = true }
+			return { timeout_ms = 1000, async = false, lsp_fallback = true }
 		end,
 	},
 	init = function()
