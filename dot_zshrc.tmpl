@@ -20,12 +20,12 @@ plugins=(
   git-lfs
   brew
   fd
-  fnm
   fzf
   npm
   tig
   web-search
   ripgrep
+  volta
   zoxide
 )
 
@@ -56,10 +56,6 @@ eval "$(starship init zsh)"
 eval "$(mcfly init zsh)"
 # bindkey "^R" mcfly-history-widget # Ctrl+R binds mcfly
 bindkey "^G" fzf-history-widget # Ctrl+G binds to fzf searcher
-
-if command -v fnm &> /dev/null; then
-  eval "$(fnm env --use-on-cd)"
-fi
 
 alias lg="lazygit"
 
