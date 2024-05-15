@@ -1,16 +1,17 @@
 return {
 	"mfussenegger/nvim-lint",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
 		local cspellNamespace = lint.get_namespace("cspell")
 
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
-			typescript = { "eslint" },
-			typescriptreact = { "eslint" },
-			javascript = { "eslint" },
-			javascriptreact = { "eslint" },
-			vue = { "eslint" },
+			typescript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
+			javascript = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
+			vue = { "eslint_d" },
 		}
 
 		lint.linters.cspell.args = {
@@ -23,7 +24,7 @@ return {
 		}
 		vim.diagnostic.config({ virtual_text = false }, cspellNamespace)
 
-		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			callback = function()
 				lint.try_lint()
 				lint.try_lint("cspell")
