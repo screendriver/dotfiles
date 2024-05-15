@@ -25,9 +25,11 @@ return {
 		vim.diagnostic.config({ virtual_text = false }, cspellNamespace)
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-			callback = function()
+			callback = function(ev)
 				lint.try_lint()
-				lint.try_lint("cspell")
+				if ev.event ~= "BufEnter" then
+					lint.try_lint("cspell")
+				end
 			end,
 		})
 	end,
