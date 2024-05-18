@@ -1,6 +1,5 @@
 tap "avencera/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 brew "bash"
 brew "bat"
 brew "btop"
