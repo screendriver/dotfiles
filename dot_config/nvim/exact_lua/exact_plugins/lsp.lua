@@ -34,6 +34,7 @@ return {
 				"taplo",
 				"cssls",
 				"volar",
+				"ansiblels",
 			})
 
 			require("mason").setup({})
