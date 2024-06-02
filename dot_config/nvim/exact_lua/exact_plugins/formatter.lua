@@ -15,7 +15,7 @@ return {
 			markdown = { "prettier", "markdownlint" },
 			json = { "prettier" },
 			jsonc = { "prettier" },
-			yaml = { "prettier", "yamlfmt" },
+			yaml = { "yamlfmt", "prettier" },
 			dart = { "dart_format" },
 			vue = { "prettier" },
 		},
