@@ -59,6 +59,9 @@ bindkey "^G" fzf-history-widget # Ctrl+G binds to fzf searcher
 
 alias lg="lazygit"
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 n ()
 {
     # Block nesting of nnn in subshells
