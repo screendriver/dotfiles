@@ -5,20 +5,15 @@ return {
 		mode = "document_diagnostics",
 	},
 	keys = {
-		{ "<leader>xx", "<cmd>TroubleToggle<cr>", silent = true, noremap = true, desc = "Toggle Trouble" },
 		{
-			"<leader>xw",
-			"<cmd>TroubleToggle workspace_diagnostics<cr>",
-			silent = true,
-			noremap = true,
-			desc = "Toggle Trouble workspace diagnostics",
+			"<leader>xx",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
 		},
 		{
-			"<leader>xd",
-			"<cmd>TroubleToggle document_diagnostics<cr>",
-			silent = true,
-			noremap = true,
-			desc = "Toggle Trouble document diagnostics",
+			"<leader>xX",
+			"<cmd>Trouble diagnostics toggle<cr>",
+			desc = "Diagnostics (Trouble)",
 		},
 	},
 }
