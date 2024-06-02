@@ -1,7 +1,7 @@
 {{- $isHeadless := promptBoolOnce . "isHeadless" "Is this a remote/headless machine" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
-{{- $gitSigningKey := promptStringOnce . "gitSigningKey" "Git signing key" -}}
 {{- $gitLabDomain := promptStringOnce . "gitLabDomain" "If GitLab is used provide the service domain (without the protocol)" -}}
+{{- $sshIdentityFile := promptStringOnce . "sshIdentityFile" "SSH identity file path" -}}
 
 {
   "diff": {
@@ -13,8 +13,8 @@
   },
   "data": {
     "email": {{ $email | quote }},
-    "gitSigningKey": {{ $gitSigningKey | quote }},
     "isHeadless": {{ $isHeadless }},
-    "gitLabDomain": {{ $gitLabDomain | quote }}
+    "gitLabDomain": {{ $gitLabDomain | quote }},
+    "sshIdentityFile" : {{ $sshIdentityFile | quote }}
   }
 }
