@@ -1,5 +1,6 @@
 tap "avencera/tap"
 tap "homebrew/bundle"
+brew "ansible"
 brew "bash"
 brew "bat"
 brew "btop"
