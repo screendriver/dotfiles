@@ -1,6 +1,5 @@
-{{- if eq .chezmoi.os "darwin" -}}
-eval $(/opt/homebrew/bin/brew shellenv)
-{{- end }}
+# Init Homebrew, which adds environment variables
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -8,10 +7,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # zsh uses $path array along with $PATH
 typeset -U PATH path
 
-{{- if eq .chezmoi.os "darwin" }}
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-{{- end }}
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.dotnet/tools:/snap/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.dotnet/tools:/snap/bin:$PATH"
 
 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
@@ -20,10 +16,6 @@ export EDITOR="nvim"
 
 export LESS="-Ri"
 export PAGER="less -Ri"
-
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
-export DIFFPROG="delta --side-by-side --syntax-theme=Dracula"
-{{- end }}
 
 export ZSH=~/.oh-my-zsh
 

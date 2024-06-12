@@ -1,16 +1,3 @@
-{{- if eq .chezmoi.os "linux" }}
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-{{- if eq .chezmoi.osRelease.id "debian" }}
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{- end }}
-
-{{- if or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.id "manjaro-arm") }}
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{- end }}
-{{- end }}
-
 ZSH_THEME="dracula"
 
 # Oh my Zsh plugins. Can be found in ~/.oh-my-zsh/plugins/*
@@ -29,7 +16,6 @@ plugins=(
   zoxide
 )
 
-{{- if eq .chezmoi.os "darwin" }}
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -37,7 +23,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 alias python="$(brew --prefix)/bin/python3"
-{{- end }}
 
 source $ZSH/oh-my-zsh.sh
 
