@@ -1,5 +1,16 @@
 ZSH_THEME="dracula"
 
+# Init Homebrew, which adds environment variables
+eval "$(brew shellenv)"
+
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Enable completions that are installed with Homebrew
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+
+alias python="$(brew --prefix)/bin/python3"
+
 # Oh my Zsh plugins. Can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
@@ -15,14 +26,6 @@ plugins=(
   volta
   zoxide
 )
-
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Enable completions that are installed with Homebrew
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-alias python="$(brew --prefix)/bin/python3"
 
 source $ZSH/oh-my-zsh.sh
 
