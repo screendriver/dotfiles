@@ -28,6 +28,7 @@ return {
 				"terraform",
 				"dart",
 				"vue",
+				"just",
 			},
 			highlight = {
 				enable = true,
