@@ -23,8 +23,8 @@ plugins=(
   tig
   web-search
   ripgrep
-  volta
   zoxide
+  fnm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -38,6 +38,7 @@ alias fd="fd --hidden"
 alias icat="kitten icat"
 alias d="kitten diff"
 alias s="kitten ssh"
+alias lg="lazygit"
 
 eval "$(starship init zsh)"
 
@@ -45,10 +46,7 @@ eval "$(mcfly init zsh)"
 # bindkey "^R" mcfly-history-widget # Ctrl+R binds mcfly
 bindkey "^G" fzf-history-widget # Ctrl+G binds to fzf searcher
 
-alias lg="lazygit"
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(fnm env --use-on-cd)"
 
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
