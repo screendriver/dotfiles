@@ -4,10 +4,3 @@ README.md
 .config/kitty/target-neighboring_window.py
 .config/kitty/target-pass_keys.py
 .config/kitty/target-relative_resize.py
-{{- if .isHeadless }}
-.config/nvim/lazy-lock.json
-.config/nvim/lua/plugins
-{{- end }}
-{{- if ne .chezmoi.os "darwin" }}
-Brewfile
-{{- end }}
