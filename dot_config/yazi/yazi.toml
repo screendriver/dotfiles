@@ -1,6 +1,5 @@
 [manager]
 linemode = "size"
-show_hidden = true
 
 [preview]
 tab_size = 4
