@@ -7,11 +7,11 @@ return {
 
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
-			typescript = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
-			javascript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			vue = { "eslint_d" },
+			typescript = { "eslint" },
+			typescriptreact = { "eslint" },
+			javascript = { "eslint" },
+			javascriptreact = { "eslint" },
+			vue = { "eslint" },
 		}
 
 		lint.linters.cspell.args = {
