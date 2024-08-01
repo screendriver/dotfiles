@@ -4,3 +4,4 @@ README.md
 .config/kitty/target-neighboring_window.py
 .config/kitty/target-pass_keys.py
 .config/kitty/target-relative_resize.py
+.config/yazi/target-package.toml

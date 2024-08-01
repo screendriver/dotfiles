@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "dedukun/relative-motions", commit = "73f5542" }]
+
+[flavor]
+deps = []
