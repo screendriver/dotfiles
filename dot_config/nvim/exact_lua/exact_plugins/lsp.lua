@@ -67,7 +67,16 @@ return {
 							enable = false,
 							url = "",
 						},
-						schemas = require("schemastore").yaml.schemas(),
+						schemas = require("schemastore").yaml.schemas({
+							extra = {
+								{
+									description = "Configuration profiles manager for restic backup",
+									fileMatch = "profiles.yaml",
+									name = "profiles.yaml",
+									url = "https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json",
+								},
+							},
+						}),
 					},
 				},
 			})
