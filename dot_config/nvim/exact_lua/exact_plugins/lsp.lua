@@ -24,7 +24,7 @@ return {
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.setup_servers({
-				"tsserver",
+				"ts_ls",
 				"astro",
 				"svelte",
 				"tailwindcss",
@@ -81,7 +81,7 @@ return {
 				},
 			})
 
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				init_options = {
 					plugins = {
 						{
