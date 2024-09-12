@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 	},
+	lazy = false,
 	opts = {
 		use_git_branch = false,
 		autosave = true,
