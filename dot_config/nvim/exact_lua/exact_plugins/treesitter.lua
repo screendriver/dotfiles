@@ -29,6 +29,7 @@ return {
 				"dart",
 				"vue",
 				"just",
+				"graphql",
 			},
 			highlight = {
 				enable = true,
