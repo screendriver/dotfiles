@@ -11,7 +11,6 @@ return {
 			"nvim-lua/plenary.nvim",
 			"telescope-fzf-native.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
-			"akinsho/flutter-tools.nvim",
 			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "1.x" },
 			"debugloop/telescope-undo.nvim",
 		},
@@ -143,7 +142,6 @@ return {
 
 			telescope.load_extension("fzf")
 			telescope.load_extension("ui-select")
-			telescope.load_extension("flutter")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("undo")
 			telescope.load_extension("persisted")
