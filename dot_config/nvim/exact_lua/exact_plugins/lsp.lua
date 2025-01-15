@@ -103,6 +103,7 @@ return {
 					{ name = "buffer" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
+					{ name = "codeium" },
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -118,6 +119,7 @@ return {
 						mode = "symbol",
 						maxwidth = 50,
 						ellipsis_char = "...",
+						symbol_map = { Codeium = "" },
 					}),
 				},
 			})
