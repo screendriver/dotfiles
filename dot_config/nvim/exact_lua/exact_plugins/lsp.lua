@@ -26,7 +26,6 @@ return {
 			lsp_zero.setup_servers({
 				"ts_ls",
 				"astro",
-				"svelte",
 				"tailwindcss",
 				"lua_ls",
 				"docker_compose_language_service",
