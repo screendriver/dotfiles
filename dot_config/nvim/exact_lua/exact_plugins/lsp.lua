@@ -34,6 +34,7 @@ return {
 				"cssls",
 				"volar",
 				"ansiblels",
+				"gopls",
 			})
 
 			require("mason").setup({})
