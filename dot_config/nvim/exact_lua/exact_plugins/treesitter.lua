@@ -30,6 +30,8 @@ return {
 				"vue",
 				"just",
 				"graphql",
+				"go",
+				"gomod",
 			},
 			highlight = {
 				enable = true,
