@@ -6,7 +6,6 @@ return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{
 		"nvim-telescope/telescope.nvim",
-		commit = "3b1600d0fd5172ad9fae00987362ca0ef3d8895d",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"telescope-fzf-native.nvim",
