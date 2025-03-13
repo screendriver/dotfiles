@@ -19,6 +19,7 @@ return {
 			virtual_text = {
 				enabled = true,
 				manual = true,
+				quiet = true,
 				key_bindings = {
 					accept = "<Tab>",
 					next = "<c-.>",
