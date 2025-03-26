@@ -1,60 +1,72 @@
 return {
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		lazy = true,
-		dependencies = { "windwp/nvim-autopairs" },
-		init = function()
-			local lsp_zero = require("lsp-zero")
-
-			lsp_zero.on_attach(function(client, bufnr)
-				lsp_zero.default_keymaps({ buffer = bufnr })
-				lsp_zero.highlight_symbol(client, bufnr)
-			end)
-		end,
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"L3MON4D3/LuaSnip",
+			"b0o/schemastore.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+			"onsails/lspkind.nvim",
+			"windwp/nvim-autopairs",
+		},
 		config = function()
-			vim.diagnostic.config({
-				virtual_text = true,
-				float = {
-					source = true,
-				},
-			})
-
-			local lsp_zero = require("lsp-zero")
-			lsp_zero.extend_lspconfig()
-
-			lsp_zero.setup_servers({
-				"ts_ls",
-				"astro",
-				"tailwindcss",
-				"lua_ls",
-				"docker_compose_language_service",
-				"dockerls",
-				"taplo",
-				"cssls",
-				"volar",
-				"ansiblels",
-				"gopls",
-			})
-
-			require("mason").setup({})
+			require("mason").setup()
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 				ensure_installed = {},
-				handlers = {
-					lsp_zero.default_setup,
-				},
 			})
 
 			local lspconfig = require("lspconfig")
+			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+			local capabilities = cmp_nvim_lsp.default_capabilities()
+			local schemastore = require("schemastore")
 			local vue_language_server_path = require("mason-registry")
 				.get_package("vue-language-server")
 				:get_install_path() .. "/node_modules/@vue/language-server"
 
+			local on_attach = function(client, bufnr)
+				-- Highlight symbol under cursor
+				if client.server_capabilities.documentHighlightProvider then
+					vim.cmd([[
+					  hi! LspReferenceRead cterm=bold ctermbg=red guibg=#6272a4
+					  hi! LspReferenceText cterm=bold ctermbg=red guibg=#6272a4
+					  hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#6272a4
+					]])
+					vim.api.nvim_create_augroup("lsp_document_highlight", {
+						clear = false,
+					})
+					vim.api.nvim_clear_autocmds({
+						buffer = bufnr,
+						group = "lsp_document_highlight",
+					})
+					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+						group = "lsp_document_highlight",
+						buffer = bufnr,
+						callback = vim.lsp.buf.document_highlight,
+					})
+					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+						group = "lsp_document_highlight",
+						buffer = bufnr,
+						callback = vim.lsp.buf.clear_references,
+					})
+				end
+			end
+
+			lspconfig.lua_ls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
 			lspconfig.jsonls.setup({
 				settings = {
 					json = {
-						schemas = require("schemastore").json.schemas(),
+						schemas = schemastore.json.schemas(),
 						validate = { enable = true },
 					},
 				},
@@ -67,7 +79,7 @@ return {
 							enable = false,
 							url = "",
 						},
-						schemas = require("schemastore").yaml.schemas({
+						schemas = schemastore.yaml.schemas({
 							extra = {
 								{
 									description = "Configuration profiles manager for restic backup",
@@ -94,8 +106,52 @@ return {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
 
+			lspconfig.astro.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.tailwindcss.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.docker_compose_language_service.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.dockerls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.taplo.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.cssls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.volar.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.ansiblels.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			lspconfig.gopls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
 			local cmp = require("cmp")
-			local cmp_action = require("lsp-zero").cmp_action()
 
 			cmp.setup({
 				sources = {
@@ -106,10 +162,12 @@ return {
 					{ name = "codeium" },
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<CR>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+						select = true,
+					}),
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-f>"] = cmp_action.luasnip_jump_forward(),
-					["<C-b>"] = cmp_action.luasnip_jump_backward(),
+					["<C-e>"] = cmp.mapping.close(),
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
 				}),
@@ -128,27 +186,6 @@ return {
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-	{ "b0o/schemastore.nvim" },
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-		},
-	},
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
-		},
-	},
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{ "L3MON4D3/LuaSnip" },
-	{ "onsails/lspkind.nvim" },
 	{
 		"nvimdev/lspsaga.nvim",
 		commit = "13b3cdc9a53ec821b9e693ee71501cc2d6cf206c",
@@ -156,7 +193,7 @@ return {
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
-			{ "VonHeikemen/lsp-zero.nvim" },
+			{ "neovim/nvim-lspconfig" },
 		},
 		keys = {
 			{ "gf", "<cmd>Lspsaga finder<CR>", desc = "Find the symbol's definition" },
