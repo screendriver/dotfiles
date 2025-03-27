@@ -5,13 +5,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"hrsh7th/nvim-cmp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"L3MON4D3/LuaSnip",
 			"b0o/schemastore.nvim",
-			"hrsh7th/cmp-nvim-lsp",
 			"onsails/lspkind.nvim",
 			"windwp/nvim-autopairs",
 		},
@@ -23,8 +17,8 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local capabilities = cmp_nvim_lsp.default_capabilities()
+
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local schemastore = require("schemastore")
 			local vue_language_server_path = require("mason-registry")
 				.get_package("vue-language-server")
@@ -150,40 +144,6 @@ return {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
-
-			local cmp = require("cmp")
-
-			cmp.setup({
-				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "buffer" },
-					{ name = "path" },
-					{ name = "nvim_lsp_signature_help" },
-					{ name = "codeium" },
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
-					}),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.close(),
-					["<C-u>"] = cmp.mapping.scroll_docs(-4),
-					["<C-d>"] = cmp.mapping.scroll_docs(4),
-				}),
-				formatting = {
-					fields = { "abbr", "kind", "menu" },
-					format = require("lspkind").cmp_format({
-						mode = "symbol",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						symbol_map = { Codeium = "" },
-					}),
-				},
-			})
-
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 	{
@@ -228,5 +188,72 @@ return {
 				auto_save = true,
 			},
 		},
+	},
+	{
+		"saghen/blink.compat",
+		lazy = true,
+	},
+	{
+		"saghen/blink.cmp",
+		version = "1.*",
+		dependencies = {
+			"Exafunction/codeium.nvim",
+		},
+		opts = {
+			keymap = { preset = "enter" },
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
+			},
+			completion = {
+				keyword = { range = "prefix" },
+				documentation = { auto_show = true, auto_show_delay_ms = 500 },
+				menu = {
+					draw = {
+						components = {
+							kind_icon = {
+								text = function(ctx)
+									local icon = ctx.kind_icon
+									if vim.tbl_contains({ "Path" }, ctx.source_name) then
+										local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+										if dev_icon then
+											icon = dev_icon
+										end
+									else
+										icon = require("lspkind").symbolic(ctx.kind, {
+											mode = "symbol",
+										})
+									end
+
+									return icon .. ctx.icon_gap
+								end,
+
+								highlight = function(ctx)
+									local hl = ctx.kind_hl
+									if vim.tbl_contains({ "Path" }, ctx.source_name) then
+										local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+										if dev_icon then
+											hl = dev_hl
+										end
+									end
+									return hl
+								end,
+							},
+						},
+					},
+				},
+				list = { selection = { preselect = true, auto_insert = true } },
+			},
+			sources = {
+				default = { "lsp", "path", "buffer", "codeium" },
+				providers = {
+					codeium = {
+						name = "codeium",
+						module = "blink.compat.source",
+					},
+				},
+			},
+		},
+		opts_extend = { "sources.default" },
 	},
 }
