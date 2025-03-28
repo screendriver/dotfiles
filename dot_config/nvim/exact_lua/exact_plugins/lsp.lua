@@ -150,7 +150,6 @@ return {
 		"nvimdev/lspsaga.nvim",
 		event = "LspAttach",
 		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
 			{ "neovim/nvim-lspconfig" },
 		},
@@ -187,6 +186,14 @@ return {
 				auto_save = true,
 			},
 		},
+		config = function(_, opts)
+			-- Patch to use mini.icons
+			require("lspsaga.util").icon_from_devicon = function(ft)
+				return require("mini.icons").get("filetype", ft)
+			end
+
+			require("lspsaga").setup(opts)
+		end,
 	},
 	{
 		"saghen/blink.compat",
