@@ -6,7 +6,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons",
+			"echasnovski/mini.nvim",
 			"Exafunction/codeium.nvim",
 		},
 		lazy = false,
@@ -29,5 +29,10 @@ return {
 				lualine_z = { "location" },
 			},
 		},
+		config = function(_, opts)
+			require("mini.icons").mock_nvim_web_devicons()
+
+			require("lualine").setup(opts)
+		end,
 	},
 }
