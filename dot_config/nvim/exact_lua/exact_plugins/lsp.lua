@@ -148,7 +148,6 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
-		commit = "13b3cdc9a53ec821b9e693ee71501cc2d6cf206c",
 		event = "LspAttach",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
