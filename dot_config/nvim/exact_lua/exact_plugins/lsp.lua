@@ -6,7 +6,6 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"b0o/schemastore.nvim",
-			"windwp/nvim-autopairs",
 			"echasnovski/mini.nvim",
 		},
 		config = function()
