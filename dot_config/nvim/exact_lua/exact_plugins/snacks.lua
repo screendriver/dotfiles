@@ -13,5 +13,12 @@ return {
 			end,
 			desc = "Open [L]azy[G]it",
 		},
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Buffer",
+		},
 	},
 }
