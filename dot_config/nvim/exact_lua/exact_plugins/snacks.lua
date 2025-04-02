@@ -26,14 +26,18 @@ return {
 		{
 			"<leader>fs",
 			function()
-				Snacks.picker.smart()
+				Snacks.picker.smart({
+					hidden = true,
+				})
 			end,
 			desc = "Smart find files",
 		},
 		{
 			"<leader>ff",
 			function()
-				Snacks.picker.files()
+				Snacks.picker.files({
+					hidden = true,
+				})
 			end,
 			desc = "Find files",
 		},
@@ -47,7 +51,9 @@ return {
 		{
 			"<leader>fg",
 			function()
-				Snacks.picker.grep()
+				Snacks.picker.grep({
+					hidden = true,
+				})
 			end,
 			desc = "Find with grep",
 		},
