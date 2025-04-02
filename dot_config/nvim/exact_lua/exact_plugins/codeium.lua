@@ -3,29 +3,21 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	keys = {
-		{
-			"<C-a>",
-			mode = { "i" },
-			function()
-				require("codeium.virtual_text").cycle_or_complete()
-			end,
-			desc = "Codeium virtual text",
+	opts = {
+		virtual_text = {
+			enabled = true,
+			manual = true,
+			quiet = true,
+			key_bindings = {
+				accept = "<Tab>",
+				next = "<c-.>",
+				prev = "<c-,>",
+				clear = "<c-x>",
+			},
 		},
 	},
-	config = function()
-		require("codeium").setup({
-			virtual_text = {
-				enabled = true,
-				manual = true,
-				quiet = true,
-				key_bindings = {
-					accept = "<Tab>",
-					next = "<c-.>",
-					prev = "<c-,>",
-					clear = "<c-x>",
-				},
-			},
-		})
-	end,
+	-- stylua: ignore
+	keys = {
+		{ "<C-a>", mode = { "i" }, function() require("codeium.virtual_text").cycle_or_complete() end, desc = "Codeium virtual text", },
+	},
 }
