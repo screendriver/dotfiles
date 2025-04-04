@@ -1,5 +1,6 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = { "stevearc/oil.nvim" },
 	priority = 1000,
 	lazy = false,
 	opts = {
@@ -8,6 +9,18 @@ return {
 			enabled = true,
 		},
 	},
+	config = function(_, opts)
+		require("snacks").setup(opts)
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "OilActionsPost",
+			callback = function(event)
+				if event.data.actions.type == "move" then
+					Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
+				end
+			end,
+		})
+	end,
 	-- stylua: ignore
 	keys = {
 		{ "<leader>lg", function() Snacks.lazygit() end, desc = "Open Lazygit", },

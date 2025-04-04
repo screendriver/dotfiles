@@ -162,7 +162,6 @@ return {
 			{ "<leader>rs", "<cmd>Lspsaga rename<CR>", desc = "Rename symbol" },
 			{ "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostics" },
 			{ "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", desc = "Show ccursor diagnostics" },
-			{ "<leader>o", "<cmd>Lspsaga outline<CR>", desc = "Toggle outline" },
 			{ "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next diagnostics" },
 			{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous diagnostics" },
 			{ "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show documentation in preview window" },
