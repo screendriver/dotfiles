@@ -198,6 +198,7 @@ return {
 		"saghen/blink.cmp",
 		version = "1.*",
 		dependencies = {
+			"mikavilpas/blink-ripgrep.nvim",
 			"Exafunction/codeium.nvim",
 		},
 		opts = {
@@ -234,8 +235,15 @@ return {
 				list = { selection = { preselect = true, auto_insert = true } },
 			},
 			sources = {
-				default = { "lsp", "path", "buffer", "codeium" },
+				default = { "lsp", "path", "buffer", "ripgrep", "codeium" },
 				providers = {
+					ripgrep = {
+						module = "blink-ripgrep",
+						name = "Ripgrep",
+						opts = {
+							project_root_marker = { ".git", "package.json" },
+						},
+					},
 					codeium = {
 						name = "codeium",
 						module = "blink.compat.source",
