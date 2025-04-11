@@ -3,6 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
+			"saghen/blink.cmp",
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"b0o/schemastore.nvim",
@@ -23,11 +24,10 @@ return {
 				.get_package("vue-language-server")
 				:get_install_path() .. "/node_modules/@vue/language-server"
 
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.lua_ls.setup({ capabilities = capabilities })
 
 			lspconfig.jsonls.setup({
+				capabilities = capabilities,
 				settings = {
 					json = {
 						schemas = schemastore.json.schemas(),
@@ -37,6 +37,7 @@ return {
 			})
 
 			lspconfig.yamlls.setup({
+				capabilities = capabilities,
 				settings = {
 					yaml = {
 						schemaStore = {
@@ -58,6 +59,7 @@ return {
 			})
 
 			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
 				init_options = {
 					plugins = {
 						{
@@ -70,41 +72,23 @@ return {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
 
-			lspconfig.astro.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.astro.setup({ capabilities = capabilities })
 
-			lspconfig.tailwindcss.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
-			lspconfig.docker_compose_language_service.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
 
-			lspconfig.dockerls.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.dockerls.setup({ capabilities = capabilities })
 
-			lspconfig.taplo.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.taplo.setup({ capabilities = capabilities })
 
-			lspconfig.cssls.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.cssls.setup({ capabilities = capabilities })
 
-			lspconfig.volar.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.volar.setup({ capabilities = capabilities })
 
-			lspconfig.ansiblels.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.ansiblels.setup({ capabilities = capabilities })
 
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
+			lspconfig.gopls.setup({ capabilities = capabilities })
 		end,
 	},
 	{
