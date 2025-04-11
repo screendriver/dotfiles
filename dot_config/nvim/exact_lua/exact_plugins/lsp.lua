@@ -7,7 +7,6 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"b0o/schemastore.nvim",
-			"echasnovski/mini.nvim",
 		},
 		config = function()
 			require("mason").setup()
@@ -97,6 +96,7 @@ return {
 		dependencies = {
 			{ "nvim-treesitter/nvim-treesitter" },
 			{ "neovim/nvim-lspconfig" },
+			{ "nvim-tree/nvim-web-devicons" },
 		},
 		keys = {
 			{
@@ -127,14 +127,6 @@ return {
 				auto_save = true,
 			},
 		},
-		config = function(_, opts)
-			-- Patch to use mini.icons
-			require("lspsaga.util").icon_from_devicon = function(ft)
-				return require("mini.icons").get("filetype", ft)
-			end
-
-			require("lspsaga").setup(opts)
-		end,
 	},
 	{
 		"saghen/blink.compat",
@@ -144,6 +136,8 @@ return {
 		"saghen/blink.cmp",
 		version = "1.*",
 		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"onsails/lspkind.nvim",
 			"mikavilpas/blink-ripgrep.nvim",
 			"Exafunction/codeium.nvim",
 		},
@@ -162,17 +156,29 @@ return {
 						components = {
 							kind_icon = {
 								text = function(ctx)
-									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-									return kind_icon
+									local icon = ctx.kind_icon
+									if vim.tbl_contains({ "Path" }, ctx.source_name) then
+										local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+										if dev_icon then
+											icon = dev_icon
+										end
+									else
+										icon = require("lspkind").symbolic(ctx.kind, {
+											mode = "symbol",
+										})
+									end
+
+									return icon .. ctx.icon_gap
 								end,
+
 								highlight = function(ctx)
-									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-									return hl
-								end,
-							},
-							kind = {
-								highlight = function(ctx)
-									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									local hl = ctx.kind_hl
+									if vim.tbl_contains({ "Path" }, ctx.source_name) then
+										local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+										if dev_icon then
+											hl = dev_hl
+										end
+									end
 									return hl
 								end,
 							},
@@ -189,6 +195,7 @@ return {
 						name = "Ripgrep",
 						opts = {
 							project_root_marker = { ".git", "package.json" },
+							ignore_paths = { "package-lock.json" },
 						},
 					},
 					codeium = {
