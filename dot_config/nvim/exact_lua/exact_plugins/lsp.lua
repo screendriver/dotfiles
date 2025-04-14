@@ -23,9 +23,11 @@ return {
 				.get_package("vue-language-server")
 				:get_install_path() .. "/node_modules/@vue/language-server"
 
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
+			vim.lsp.enable("lua_ls", {
+				capabilities = capabilities,
+			})
 
-			lspconfig.jsonls.setup({
+			vim.lsp.enable("jsonls", {
 				capabilities = capabilities,
 				settings = {
 					json = {
@@ -35,7 +37,7 @@ return {
 				},
 			})
 
-			lspconfig.yamlls.setup({
+			vim.lsp.enable("yamlls", {
 				capabilities = capabilities,
 				settings = {
 					yaml = {
@@ -57,37 +59,45 @@ return {
 				},
 			})
 
-			lspconfig.ts_ls.setup({
+			vim.lsp.enable("ts_ls", {
 				capabilities = capabilities,
 				init_options = {
 					plugins = {
 						{
 							name = "@vue/typescript-plugin",
 							location = vue_language_server_path,
-							languages = { "vue" },
+							languages = { "javascript", "typescript", "vue" },
 						},
 					},
 				},
-				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"javascript.jsx",
+					"typescript",
+					"typescriptreact",
+					"typescript.tsx",
+					"vue",
+				},
 			})
 
 			lspconfig.astro.setup({ capabilities = capabilities })
 
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
-			lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
+			vim.lsp.enable("docker_compose_language_service", { capabilities = capabilities })
 
-			lspconfig.dockerls.setup({ capabilities = capabilities })
+			vim.lsp.enable("dockerls", { capabilities = capabilities })
 
-			lspconfig.taplo.setup({ capabilities = capabilities })
+			vim.lsp.enable("taplo", { capabilities = capabilities })
 
-			lspconfig.cssls.setup({ capabilities = capabilities })
+			vim.lsp.enable("cssls", { capabilities = capabilities })
 
 			lspconfig.volar.setup({ capabilities = capabilities })
 
-			lspconfig.ansiblels.setup({ capabilities = capabilities })
+			vim.lsp.enable("ansiblels", { capabilities = capabilities })
 
-			lspconfig.gopls.setup({ capabilities = capabilities })
+			vim.lsp.enable("gopls", { capabilities = capabilities })
 		end,
 	},
 	{
