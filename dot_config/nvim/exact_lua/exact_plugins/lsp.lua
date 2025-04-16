@@ -210,6 +210,7 @@ return {
 							project_root_marker = { ".git", "package.json" },
 							ignore_paths = { "package-lock.json" },
 						},
+						score_offset = -100,
 					},
 					codeium = {
 						name = "codeium",
