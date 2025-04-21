@@ -23,11 +23,11 @@ return {
 				.get_package("vue-language-server")
 				:get_install_path() .. "/node_modules/@vue/language-server"
 
-			vim.lsp.enable("lua_ls", {
-				capabilities = capabilities,
-			})
+			vim.lsp.enable("lua_ls")
+			vim.lsp.config("lua_ls", { capabilities = capabilities })
 
-			vim.lsp.enable("jsonls", {
+			vim.lsp.enable("jsonls")
+			vim.lsp.config("jsonls", {
 				capabilities = capabilities,
 				settings = {
 					json = {
@@ -37,7 +37,8 @@ return {
 				},
 			})
 
-			vim.lsp.enable("yamlls", {
+			vim.lsp.enable("yamlls")
+			vim.lsp.config("yamlls", {
 				capabilities = capabilities,
 				settings = {
 					yaml = {
@@ -59,7 +60,8 @@ return {
 				},
 			})
 
-			vim.lsp.enable("ts_ls", {
+			vim.lsp.enable("ts_ls")
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				init_options = {
 					plugins = {
@@ -81,23 +83,29 @@ return {
 				},
 			})
 
+			lspconfig.volar.setup({ capabilities = capabilities })
+
 			lspconfig.astro.setup({ capabilities = capabilities })
 
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
-			vim.lsp.enable("docker_compose_language_service", { capabilities = capabilities })
+			vim.lsp.enable("docker_compose_language_service")
+			vim.lsp.config("docker_compose_language_service", { capabilities = capabilities })
 
-			vim.lsp.enable("dockerls", { capabilities = capabilities })
+			vim.lsp.enable("dockerls")
+			vim.lsp.config("dockerls", { capabilities = capabilities })
 
-			vim.lsp.enable("taplo", { capabilities = capabilities })
+			vim.lsp.enable("taplo")
+			vim.lsp.config("taplo", { capabilities = capabilities })
 
-			vim.lsp.enable("cssls", { capabilities = capabilities })
+			vim.lsp.enable("cssls")
+			vim.lsp.config("cssls", { capabilities = capabilities })
 
-			lspconfig.volar.setup({ capabilities = capabilities })
+			vim.lsp.enable("ansiblels")
+			vim.lsp.config("ansiblels", { capabilities = capabilities })
 
-			vim.lsp.enable("ansiblels", { capabilities = capabilities })
-
-			vim.lsp.enable("gopls", { capabilities = capabilities })
+			vim.lsp.enable("gopls")
+			vim.lsp.config("gopls", { capabilities = capabilities })
 		end,
 	},
 	{
