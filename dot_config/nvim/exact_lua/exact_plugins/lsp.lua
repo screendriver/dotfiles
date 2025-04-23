@@ -147,10 +147,6 @@ return {
 		},
 	},
 	{
-		"saghen/blink.compat",
-		lazy = true,
-	},
-	{
 		"saghen/blink.cmp",
 		version = "1.*",
 		dependencies = {
@@ -220,10 +216,7 @@ return {
 						},
 						score_offset = -100,
 					},
-					codeium = {
-						name = "codeium",
-						module = "blink.compat.source",
-					},
+					codeium = { name = "Codeium", module = "codeium.blink", async = true },
 				},
 			},
 		},
