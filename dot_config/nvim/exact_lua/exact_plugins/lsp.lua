@@ -15,8 +15,6 @@ return {
 				ensure_installed = {},
 			})
 
-			local lspconfig = require("lspconfig")
-
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local schemastore = require("schemastore")
 			local vue_language_server_path = require("mason-registry")
@@ -83,11 +81,14 @@ return {
 				},
 			})
 
-			lspconfig.volar.setup({ capabilities = capabilities })
+			vim.lsp.enable("volar", { capabilities = capabilities })
+			vim.lsp.config("volar", { capabilities = capabilities })
 
-			lspconfig.astro.setup({ capabilities = capabilities })
+			vim.lsp.enable("astro")
+			vim.lsp.config("astro", { capabilities = capabilities })
 
-			lspconfig.tailwindcss.setup({ capabilities = capabilities })
+			vim.lsp.enable("tailwindcss")
+			vim.lsp.config("tailwindcss", { capabilities = capabilities })
 
 			vim.lsp.enable("docker_compose_language_service")
 			vim.lsp.config("docker_compose_language_service", { capabilities = capabilities })
