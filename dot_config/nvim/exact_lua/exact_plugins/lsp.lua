@@ -17,9 +17,6 @@ return {
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local schemastore = require("schemastore")
-			local vue_language_server_path = require("mason-registry")
-				.get_package("vue-language-server")
-				:get_install_path() .. "/node_modules/@vue/language-server"
 
 			vim.lsp.enable("lua_ls")
 			vim.lsp.config("lua_ls", { capabilities = capabilities })
@@ -58,6 +55,9 @@ return {
 				},
 			})
 
+			vim.lsp.enable("volar", { capabilities = capabilities })
+			vim.lsp.config("volar", { capabilities = capabilities })
+
 			vim.lsp.enable("ts_ls")
 			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
@@ -65,7 +65,7 @@ return {
 					plugins = {
 						{
 							name = "@vue/typescript-plugin",
-							location = vue_language_server_path,
+							location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
 							languages = { "javascript", "typescript", "vue" },
 						},
 					},
@@ -80,9 +80,6 @@ return {
 					"vue",
 				},
 			})
-
-			vim.lsp.enable("volar", { capabilities = capabilities })
-			vim.lsp.config("volar", { capabilities = capabilities })
 
 			vim.lsp.enable("astro")
 			vim.lsp.config("astro", { capabilities = capabilities })
