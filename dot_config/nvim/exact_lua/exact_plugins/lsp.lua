@@ -55,8 +55,8 @@ return {
 				},
 			})
 
-			vim.lsp.enable("volar", { capabilities = capabilities })
-			vim.lsp.config("volar", { capabilities = capabilities })
+			vim.lsp.enable("vue_ls", { capabilities = capabilities })
+			vim.lsp.config("vue_ls", { capabilities = capabilities })
 
 			vim.lsp.enable("ts_ls")
 			vim.lsp.config("ts_ls", {
