@@ -5,7 +5,15 @@ return {
 	lazy = false,
 	opts = {
 		lazygit = {},
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			formatters = {
+				file = {
+					filename_first = true,
+					truncate = vim.api.nvim_win_get_width(0) * 0.5,
+				},
+			},
+		},
 		words = { enabled = true },
 	},
 	config = function(_, opts)
