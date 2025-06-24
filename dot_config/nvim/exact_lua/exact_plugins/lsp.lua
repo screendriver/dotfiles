@@ -154,6 +154,15 @@ return {
 			"Exafunction/codeium.nvim",
 		},
 		opts = {
+			enabled = function()
+				-- If in the cmdline, enable completion regardless of filetype
+				if vim.fn.getcmdtype() ~= "" then
+					return true
+				end
+
+				-- Disable completion if the current buffer is `oil`
+				return not vim.tbl_contains({ "oil" }, vim.bo.filetype)
+			end,
 			keymap = { preset = "enter" },
 			appearance = {
 				use_nvim_cmp_as_default = true,
