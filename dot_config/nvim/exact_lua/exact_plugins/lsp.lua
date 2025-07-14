@@ -58,28 +58,27 @@ return {
 			vim.lsp.enable("vue_ls", { capabilities = capabilities })
 			vim.lsp.config("vue_ls", { capabilities = capabilities })
 
-			vim.lsp.enable("ts_ls")
-			vim.lsp.config("ts_ls", {
-				capabilities = capabilities,
-				init_options = {
-					plugins = {
-						{
-							name = "@vue/typescript-plugin",
-							location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-							languages = { "javascript", "typescript", "vue" },
+			local vue_language_server_path = vim.fn.stdpath("data")
+				.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+			local vue_plugin = {
+				name = "@vue/typescript-plugin",
+				location = vue_language_server_path,
+				languages = { "vue" },
+				configNamespace = "typescript",
+			}
+			vim.lsp.config("vtsls", {
+				settings = {
+					vtsls = {
+						tsserver = {
+							globalPlugins = {
+								vue_plugin,
+							},
 						},
 					},
 				},
-				filetypes = {
-					"javascript",
-					"javascriptreact",
-					"javascript.jsx",
-					"typescript",
-					"typescriptreact",
-					"typescript.tsx",
-					"vue",
-				},
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
+			vim.lsp.enable("vtsls")
 
 			vim.lsp.enable("astro")
 			vim.lsp.config("astro", { capabilities = capabilities })
