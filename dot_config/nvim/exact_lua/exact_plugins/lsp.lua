@@ -159,8 +159,8 @@ return {
 					return true
 				end
 
-				-- Disable completion if the current buffer is `oil`
-				return not vim.tbl_contains({ "oil" }, vim.bo.filetype)
+				-- Disable completion if the current buffer is "oil" or "sagarename"
+				return not vim.tbl_contains({ "oil", "sagarename" }, vim.bo.filetype)
 			end,
 			keymap = { preset = "enter" },
 			appearance = {
