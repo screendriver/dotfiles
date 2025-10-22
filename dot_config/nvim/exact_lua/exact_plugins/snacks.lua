@@ -12,6 +12,12 @@ return {
 					truncate = "left",
 				},
 			},
+			layout = {
+				layout = {
+					width = 0.9,
+					height = 0.9,
+				},
+			},
 		},
 		words = { enabled = true },
 	},
