@@ -32,6 +32,7 @@ return {
 				"graphql",
 				"go",
 				"gomod",
+				"scss",
 			},
 			highlight = {
 				enable = true,
