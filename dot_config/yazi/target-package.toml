@@ -1,7 +1,5 @@
-[[plugin.deps]]
-use = "dedukun/relative-motions"
-rev = "61ae795"
-hash = "65d576a76597aac2a428dc7ec0eda2ce"
+[plugin]
+deps = []
 
 [flavor]
 deps = []
