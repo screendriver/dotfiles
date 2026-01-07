@@ -1,5 +1,6 @@
+---
 color:
-    theme: custom
+  theme: custom
 hyperlink: auto
 sorting:
-    dir-grouping: first
+  dir-grouping: first
