@@ -124,44 +124,6 @@ return {
 		end,
 	},
 	{
-		"nvimdev/lspsaga.nvim",
-		event = "LspAttach",
-		dependencies = {
-			{ "nvim-treesitter/nvim-treesitter" },
-			{ "neovim/nvim-lspconfig" },
-			{ "nvim-tree/nvim-web-devicons" },
-		},
-		keys = {
-			{
-				"<leader>ca",
-				"<cmd>Lspsaga code_action<CR>",
-				mode = { "n", "v" },
-				desc = "Code action",
-			},
-			{ "<leader>rs", "<cmd>Lspsaga rename<CR>", desc = "Rename symbol" },
-			{ "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostics" },
-			{ "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", desc = "Show ccursor diagnostics" },
-			{ "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Go to next diagnostics" },
-			{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Go to previous diagnostics" },
-			{ "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show documentation in preview window" },
-		},
-		opts = {
-			symbol_in_winbar = {
-				enable = false,
-			},
-			diagnostic = {
-				on_insert = false,
-			},
-			ui = {
-				border = "rounded",
-			},
-			rename = {
-				in_select = false,
-				auto_save = true,
-			},
-		},
-	},
-	{
 		"saghen/blink.cmp",
 		version = "1.*",
 		dependencies = {

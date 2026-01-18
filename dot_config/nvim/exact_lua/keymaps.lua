@@ -19,3 +19,21 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true, desc = "Clear search [H]ighlighting" })
+
+-- LSP
+
+vim.keymap.set("n", "<leader>rs", function()
+	vim.lsp.buf.rename()
+end, { desc = "[R]ename [S]ymbol" })
+
+vim.keymap.set("n", "<leader>ld", function()
+	vim.diagnostic.open_float(nil, { border = "rounded", source = "always", prefix = "" })
+end, { desc = "[L]ist [D]iagnostics" })
+
+vim.keymap.set({ "n", "v" }, "<leader>ca", function()
+	vim.lsp.buf.code_action()
+end, { desc = "[C]ode [A]ction" })
+
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "Show documentation" })
