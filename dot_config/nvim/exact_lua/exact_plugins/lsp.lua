@@ -128,7 +128,7 @@ return {
 		version = "1.*",
 		dependencies = {
 			"mikavilpas/blink-ripgrep.nvim",
-			"Exafunction/codeium.nvim",
+			"fang2hou/blink-copilot",
 		},
 		opts = {
 			enabled = function()
@@ -164,7 +164,7 @@ return {
 				list = { selection = { preselect = true, auto_insert = true } },
 			},
 			sources = {
-				default = { "lsp", "path", "buffer", "ripgrep", "codeium" },
+				default = { "lsp", "path", "buffer", "ripgrep", "copilot" },
 				providers = {
 					ripgrep = {
 						module = "blink-ripgrep",
@@ -175,7 +175,12 @@ return {
 						},
 						score_offset = -100,
 					},
-					codeium = { name = "Codeium", module = "codeium.blink", async = true },
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
+					},
 				},
 			},
 		},
