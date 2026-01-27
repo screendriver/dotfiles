@@ -23,7 +23,7 @@ return {
 			callback = function(ev)
 				lint.try_lint(nil, { ignore_errors = true })
 				if ev.event ~= "BufEnter" then
-					lint.try_lint("cspell")
+					lint.try_lint("cspell", { ignore_errors = true })
 				end
 			end,
 		})
