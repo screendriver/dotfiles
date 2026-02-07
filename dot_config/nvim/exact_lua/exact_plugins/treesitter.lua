@@ -1,10 +1,13 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
+		branch = "main",
+		lazy = false,
 		build = ":TSUpdate",
-		opts = {
-			ensure_installed = {
+		config = function()
+			local ts = require("nvim-treesitter")
+
+			local parsers = {
 				"html",
 				"css",
 				"javascript",
@@ -33,71 +36,107 @@ return {
 				"go",
 				"gomod",
 				"scss",
-			},
-			highlight = {
-				enable = true,
-				disable = function()
+			}
+
+			for _, parser in ipairs(parsers) do
+				ts.install(parser)
+			end
+
+			-- Collect file type patterns for autocommand
+			local patterns = {}
+			for _, parser in ipairs(parsers) do
+				local parser_patterns = vim.treesitter.language.get_filetypes(parser)
+				for _, pp in pairs(parser_patterns) do
+					table.insert(patterns, pp)
+				end
+			end
+
+			-- Enable treesitter features via autocommand
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = patterns,
+				callback = function()
+					-- Disable for chezmoitmpl files
 					if string.find(vim.bo.filetype, "chezmoitmpl") then
-						return true
+						return
 					end
+
+					-- Enable syntax highlighting
+					vim.treesitter.start()
+
+					-- Enable indentation
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				end,
-				additional_vim_regex_highlighting = false,
-			},
-			indent = {
-				enable = true,
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					node_incremental = "v",
-					node_decremental = "V",
-				},
-			},
-			autotag = {
-				enable = true,
-			},
-			matchup = {
-				enable = true,
-				disable_virtual_text = true,
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					disable = { "dart" },
-					lookahead = true,
-					keymaps = {
-						["af"] = { query = "@function.outer", desc = "Select [A]round [F]unction" },
-						["if"] = { query = "@function.inner", desc = "Select [I]n [F]unction" },
-					},
-				},
-				swap = {
-					enable = true,
-					disable = { "dart" },
-					swap_next = {
-						["<leader>a"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
-					},
-					swap_previous = {
-						["<leader>A"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
-					},
-				},
-			},
-		},
-		config = function(plugin, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			})
+
+			-- Set up treesitter-context
 			require("treesitter-context").setup()
 		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		dependencies = "nvim-treesitter/nvim-treesitter",
+		dependencies = { "nvim-treesitter/nvim-treesitter", branch = "main" },
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = "nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		dependencies = { "nvim-treesitter/nvim-treesitter", branch = "main" },
+		config = function()
+			-- Set up textobjects module
+			require("nvim-treesitter-textobjects").setup({
+				select = {
+					lookahead = true,
+					selection_modes = {
+						["@function.outer"] = "V",
+						["@parameter.inner"] = "v",
+					},
+					include_surrounding_whitespace = false,
+				},
+				swap = {
+					enable = true,
+				},
+			})
+
+			-- Set up select keymaps
+			vim.keymap.set({ "x", "o" }, "af", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+			end, { desc = "Select [A]round [F]unction" })
+
+			vim.keymap.set({ "x", "o" }, "if", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+			end, { desc = "Select [I]n [F]unction" })
+
+			-- Set up swap keymaps (skip for dart files)
+			local function setup_swap_keymaps()
+				if vim.bo.filetype == "dart" then
+					return
+				end
+
+				vim.keymap.set("n", "<leader>a", function()
+					require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+				end, { buffer = true, desc = "Swap with next parameter" })
+
+				vim.keymap.set("n", "<leader>A", function()
+					require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+				end, { buffer = true, desc = "Swap with previous parameter" })
+			end
+
+			-- Set up swap keymaps for non-dart files
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "*",
+				callback = setup_swap_keymaps,
+			})
+		end,
 	},
 	{
 		"windwp/nvim-ts-autotag",
 		event = "VeryLazy",
-		dependencies = "nvim-treesitter/nvim-treesitter",
+		dependencies = { "nvim-treesitter/nvim-treesitter", branch = "main" },
+		opts = {
+			opts = {
+				enable_close = true,
+				enable_rename = true,
+				enable_close_on_slash = false,
+			},
+		},
 	},
 }
