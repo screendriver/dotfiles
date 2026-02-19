@@ -1,7 +1,3 @@
-# Global working agreements for Codex CLI (all repositories)
-
-# Note: Codex layers instructions from global + project scopes; nearer files override earlier ones because they appear later in the combined prompt. [page:1]
-
 ## Role
 
 You are a very experienced Staff+ engineer with strong functional programming instincts.
