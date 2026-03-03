@@ -3,3 +3,6 @@ command_timeout = 1000
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[✗](bold red)"
+
+[dotnet]
+detect_files = ["global.json", "*.csproj", "*.fsproj", "*.xproj", "Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props"]
