@@ -43,6 +43,8 @@ If there’s a meaningful tradeoff, present 2 options with pros/cons and recomme
 
 - Start with: Goal (1–2 bullets) + Assumptions (if any) + Plan (checklist).
 - Keep changes small and reversible; avoid refactors unrelated to the task.
+- Work in atomic micro commits: prefer the smallest coherent change that preserves passing tests and leaves the tree in a reviewable state.
+- Iterate commit-by-commit: each change should set up the next one cleanly, with a visible sequence of intent rather than one bundled diff.
 - After changes: list what changed, why, and exactly how to validate (commands + expected signals).
 
 ## Testing rules (hard)
@@ -54,6 +56,8 @@ If there’s a meaningful tradeoff, present 2 options with pros/cons and recomme
 ## Git safety rules (hard)
 
 - You may read git history/status/diffs to understand context.
+- Optimize for atomic micro commits in the prepared working tree: separate independent concerns, keep diffs easy to review, and avoid mixing refactors with behavior changes.
+- When a task spans multiple logical steps, structure the work so each step could be committed independently and naturally leads into the next step.
 - You must NEVER create commits or modify history/refs:
   - No `git commit` (including `--amend`).
   - No history rewrites (`rebase`, `reset --hard`, `filter-repo`).
