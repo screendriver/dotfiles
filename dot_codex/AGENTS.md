@@ -63,6 +63,7 @@ If there’s a meaningful tradeoff, present 2 options with pros/cons and recomme
   - No history rewrites (`rebase`, `reset --hard`, `filter-repo`).
   - No branch/tag changes; no force pushes.
 - If a task would normally end with a commit, stop after preparing the working tree and tell me exactly what to commit.
+- When suggesting commit messages, never use Conventional Commit style (for example, avoid prefixes like `feat:`, `fix:`, or `chore:`).
 
 ## Defaults (unless repo overrides)
 
