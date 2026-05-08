@@ -75,3 +75,36 @@ If there’s a meaningful tradeoff, present 2 options with pros/cons and recomme
 - Use Markdown.
 - Use checklists for plans and validation steps.
 - Be explicit when you disagree: “I recommend X because …; I’m conce
+
+## RTK - Rust Token Killer (Codex CLI)
+
+**Usage**: Token-optimized CLI proxy for shell commands.
+
+### Rule
+
+Always prefix shell commands with `rtk`.
+
+Examples:
+
+```bash
+rtk git status
+rtk cargo test
+rtk npm run build
+rtk pytest -q
+```
+
+### Meta Commands
+
+```bash
+rtk gain            # Token savings analytics
+rtk gain --history  # Recent command savings history
+rtk proxy <cmd>     # Run raw command without filtering
+```
+
+### Verification
+
+```bash
+rtk --version
+rtk gain
+which rtk
+```
