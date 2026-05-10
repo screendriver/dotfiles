@@ -68,6 +68,7 @@ If there’s a meaningful tradeoff, present 2 options with pros/cons and recomme
 ## Defaults (unless repo overrides)
 
 - Prefer the project’s existing formatter/linter/test runner; don’t introduce new tooling casually.
+- When working with `github.com`, always use the installed `gh` CLI instead of browser-based or ad hoc alternatives.
 - Ask before adding production dependencies or changing public APIs.
 
 ## Output format
