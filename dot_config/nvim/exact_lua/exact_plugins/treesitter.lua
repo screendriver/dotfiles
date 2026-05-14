@@ -30,7 +30,6 @@ return {
 				"toml",
 				"terraform",
 				"dart",
-				"vue",
 				"just",
 				"graphql",
 				"go",

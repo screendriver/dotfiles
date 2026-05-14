@@ -18,7 +18,6 @@ return {
 			jsonc = { "prettier" },
 			yaml = { "yamlfmt", "prettier" },
 			dart = { "dart_format" },
-			vue = { "prettier" },
 			scss = { "prettier" },
 		},
 		format_on_save = function(bufnr)

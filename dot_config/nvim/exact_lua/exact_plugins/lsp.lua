@@ -55,30 +55,11 @@ return {
 				},
 			})
 
-			vim.lsp.enable("vue_ls", { capabilities = capabilities })
-			vim.lsp.config("vue_ls", { capabilities = capabilities })
-
-			local vue_language_server_path = vim.fn.stdpath("data")
-				.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
-			local vue_plugin = {
-				name = "@vue/typescript-plugin",
-				location = vue_language_server_path,
-				languages = { "vue" },
-				configNamespace = "typescript",
-			}
-			vim.lsp.config("vtsls", {
-				settings = {
-					vtsls = {
-						tsserver = {
-							globalPlugins = {
-								vue_plugin,
-							},
-						},
-					},
-				},
-				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+			vim.lsp.enable("ts_ls")
+			vim.lsp.config("ts_ls", {
+				capabilities = capabilities,
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
 			})
-			vim.lsp.enable("vtsls")
 
 			local base_on_attach = vim.lsp.config.eslint.on_attach
 			vim.lsp.enable("eslint")
