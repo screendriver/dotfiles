@@ -52,6 +52,7 @@ If there’s a meaningful tradeoff, present 2 options with pros/cons and recomme
 - For every new behavior or behavior change: add/adjust tests first or alongside the change.
 - Prefer fast, deterministic tests; isolate time/IO via DI.
 - If tests are missing or hard to write, stop and propose how to refactor for testability before implementing.
+- In unit tests, extract complex assertion inputs and expected values into dedicated `actual...` and `expected...` variables instead of inlining large objects, arrays, or similarly non-trivial values directly in the assertion. Simple primitive assertions like strings, numbers, and booleans may stay inline when the expression is already clear.
 
 ## Git safety rules (hard)
 
