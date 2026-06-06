@@ -81,10 +81,18 @@ Use the `prepare-atomic-changes` skill when a task spans multiple logical change
 
 Always prefix shell commands with `rtk`.
 
+Prefer repository task runners when they exist. Use `rtk just ...`, `rtk make ...`, `rtk nx ...`, `rtk pnpm nx ...`, `rtk npm run ...`, `rtk cargo xtask ...`, or equivalent project commands instead of bypassing them with the underlying tool, unless the repository explicitly documents the direct tool command as equivalent.
+
+Preserve repository behavior first. Task runners often set environment variables, prepare generated files, enforce prerequisites, or combine multiple validation steps. For example, use `rtk just test-unit --run <path>` instead of `rtk vitest --run <path>` when the Just recipe owns the test setup.
+
 Examples:
 
 ```bash
 rtk git status
+rtk just test-unit --run source/example.test.ts
+rtk just lint
+rtk nx test web
+rtk pnpm nx affected -t test
 rtk npm test
 rtk npm run build
 rtk cargo test
