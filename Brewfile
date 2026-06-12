@@ -1,4 +1,3 @@
-tap "avencera/tap"
 tap "homebrew/bundle"
 brew "ansible"
 brew "ansible-lint"
