@@ -77,6 +77,12 @@ Use the `prepare-atomic-changes` skill when a task spans multiple logical change
 - Ask before changing public APIs.
 - When working with GitHub, use the installed `gh` CLI instead of browser-based or ad hoc alternatives.
 
+## GitHub CLI authentication
+
+The local `gh` authentication uses the macOS keyring. Sandboxed Codex commands may not be able to read that token even when `rtk gh auth status` works in my terminal.
+
+When a GitHub CLI command requires authentication, run it with escalation instead of asking me to re-authenticate or changing `gh` configuration.
+
 ## Shell command rule
 
 Always prefix shell commands with `rtk`.
