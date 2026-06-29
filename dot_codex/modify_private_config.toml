@@ -1,0 +1,19 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $config := fromToml .chezmoi.stdin -}}
+
+{{- $config = setValueAtPath "personality" "pragmatic" $config -}}
+
+{{- $config = setValueAtPath "mcp_servers.shadcn.command" "npx" $config -}}
+{{- $config = setValueAtPath "mcp_servers.shadcn.args" (list "shadcn@latest" "mcp") $config -}}
+
+{{- $config = setValueAtPath "mcp_servers.eslint.command" "npx" $config -}}
+{{- $config = setValueAtPath "mcp_servers.eslint.args" (list "@eslint/mcp@latest") $config -}}
+
+{{- $config = setValueAtPath "mcp_servers.astro-docs.command" "npx" $config -}}
+{{- $config = setValueAtPath "mcp_servers.astro-docs.args" (list "-y" "mcp-remote" "https://mcp.docs.astro.build/mcp") $config -}}
+
+{{- $config = setValueAtPath "mcp_servers.context7.command" "npx" $config -}}
+{{- $config = setValueAtPath "mcp_servers.context7.args" (list "-y" "@upstash/context7-mcp") $config -}}
+{{- $config = setValueAtPath "mcp_servers.context7.default_tools_approval_mode" "auto" $config -}}
+
+{{- $config | toToml -}}
