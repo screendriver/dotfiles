@@ -9,6 +9,10 @@ Prefer pure functions for core behavior.
 
 Move side effects to the outer boundary.
 
+At the boundary, convert untrusted outside-world values into application-owned data before they reach core logic.
+
+Boundary code should handle runtime validation, parsing, normalization, and semantic error mapping.
+
 Inject dependencies explicitly.
 
 Avoid importing hidden dependencies into core logic.

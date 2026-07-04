@@ -34,6 +34,10 @@ Prioritize correctness, maintainability, testability, operability, and long-term
 - Keep dependency records minimal.
 - Isolate side effects behind explicit boundaries.
 - Side effects include time, filesystem access, network access, randomness, environment variables, configuration, database access, browser globals, process globals, and module-level mutable state.
+- Treat the outside world as untrusted until it crosses an explicit boundary.
+- Outside-world values include user input, network responses, storage, browser APIs, environment variables, time, randomness, framework state, and third-party library output.
+- Use boundary/DMZ code to validate unknown values, parse dates, normalize failures, and map external shapes into application-owned data.
+- Keep the happy zone boring: core application logic should operate on trusted domain/application data and return semantic outcomes, not UI labels, translation keys, raw responses, browser objects, or provider-specific errors.
 - Keep core behavior as pure as practical.
 
 Use the `refactor-for-testability` skill when code needs explicit seams or side-effect boundaries before it can be tested well.
